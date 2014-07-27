@@ -38,3 +38,9 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# github omniauth gem
+gem "omniauth-github", '1.1.1'
+
+# devise for user generation
+gem 'devise'
+
