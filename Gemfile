@@ -23,6 +23,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+
+# haml. it's like bacon. only better.
+gem 'haml-rails'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -46,4 +50,7 @@ gem "omniauth-github", '1.1.1'
 
 # devise for user generation
 gem 'devise'
+
+# pry for testing
+gem 'pry'
 
