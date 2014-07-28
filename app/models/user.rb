@@ -6,15 +6,15 @@ class User < ActiveRecord::Base
          :omniauth_providers => [:github]
 
 
-  validates :name, :bday, :zip, :gender, :interested_in, :height, :summary,
-  presence: true
+   validates :name, :bday, :zip, :gender, :interested_in, :height, :summary,
+   presence: true
 
   #validate that the name has at least 3 characters
-  validates :name, length: {minimum: 3}
+  # validates :name, length: {minimum: 3}
 
   #validate that the bday format is correct
-  validates :bday, format:
-    { :with => /[1-2]{1}[0-9]{3}\/[0-1]{1}[0-9]{1}\/[0-3]{1}[0-9]{1}/ }
+  # validates :bday, format:
+  #  { :with => /[1-2]{1}[0-9]{3}\/[0-1]{1}[0-9]{1}\/[0-3]{1}[0-9]{1}/ }
 
   # check if the user has been created in the system yet, and if they have not
   # then create a new instance of user for them. this method checks for existence
@@ -30,8 +30,7 @@ class User < ActiveRecord::Base
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.github_data"] && session["devise.github_data"]
-      ["extra"]["raw_info"]
+      if data = session["devise.github_data"] && session["devise.github_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
       end
     end

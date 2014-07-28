@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'activerecord-postgres-hstore'
-
 gem 'wicked'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
