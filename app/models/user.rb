@@ -6,33 +6,15 @@ class User < ActiveRecord::Base
          :omniauth_providers => [:github]
 
 
-  validates :name, presence: true
-
-  #validates that the name is unique
-  validates :name, uniqueness: true
+  validates :name, :bday, :zip, :gender, :interested_in, :height, :summary,
+  presence: true
 
   #validate that the name has at least 3 characters
   validates :name, length: {minimum: 3}
 
-  validates :bday, presence: true
-
   #validate that the bday format is correct
-  validates :bday format:
+  validates :bday, format:
     { :with => /[1-2]{1}[0-9]{3}\/[0-1]{1}[0-9]{1}\/[0-3]{1}[0-9]{1}/ }
-
-  validates :location, presence: true
-
-  validates :gender, presence: true
-
-  validates :interested_in, presence: true
-
-  validates :height, presence: true
-
-  validates :summary, presence: true
-
-
-
-
 
   # check if the user has been created in the system yet, and if they have not
   # then create a new instance of user for them. this method checks for existence

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = Users.search(search_params)
+    @users = User.search(search_params)
   end
 
   def new
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   # self.search function on the user model
