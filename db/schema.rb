@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728145054) do
+ActiveRecord::Schema.define(version: 20140728193156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140728145054) do
     t.text     "movie_genre"
     t.text     "summary"
     t.text     "profile_picture_url"
+    t.string   "status"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
