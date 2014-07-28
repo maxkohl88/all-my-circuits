@@ -19,7 +19,7 @@ class AfterSignupController < Wicked::WizardController
   def wizard_params
     params.require(:user).permit(:name, :bday, :zip, :gender, :interested_in,
     :height, :primary_language, :human_language, :years_programming, :industry,
-    :fav_animal, :fav_book, :game_genre, :music_genre, :movie_genre)
+    :summary, :fav_animal, :fav_book, :game_genre, :music_genre, :movie_genre)
   end
 
 end
