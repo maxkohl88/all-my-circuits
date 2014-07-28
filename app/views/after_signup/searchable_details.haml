@@ -1,0 +1,8 @@
+%h1 These are some things that people can find you by!
+= form_for(@user, url: wizard_path, method: :put) do |f|
+  = f.text_field :fav_animal, placeholder: 'cats or dogs?'
+  = f.text_field :fav_book, placeholder: 'favorite book'
+  = f.text_field :game_genre, placeholder: 'favorite game genre'
+  = f.text_field :music_genre, placeholder: 'favorite music genre'
+  = f.text_field :movie_genre, placeholder: 'favorite movie genre'
+  = f.submit 'Next'
