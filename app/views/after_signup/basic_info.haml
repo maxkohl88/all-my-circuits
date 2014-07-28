@@ -1,0 +1,10 @@
+- render '/shared/error'
+%h1 Add some basic info
+= form_for(@user, url: wizard_path, method: :put) do |f|
+  = f.text_field :name, placeholder: 'pick a username!'
+  = f.text_field :bday, placeholder: 'Enter your birthday as yyyy-mm-dd'
+  = f.text_field :zip, placeholder: 'Enter your zipcode'
+  = f.text_field :gender
+  = f.text_field :interested_in
+  = f.text_field :height, placeholder: 'in inches'
+  = f.submit 'Next'

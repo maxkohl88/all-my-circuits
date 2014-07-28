@@ -1,7 +1,2 @@
 .grid#top-half
-  - if user_signed_in?
-    = "Welcome #{current_user.name}"
-  - else
-    = link_to 'Sign in with Github', user_omniauth_authorize_path(:github),
-    id: 'sign-up-button'
-
+= link_to 'sign up with github', user_omniauth_authorize_path(:github)

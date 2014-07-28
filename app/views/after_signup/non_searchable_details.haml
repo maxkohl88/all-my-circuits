@@ -1,0 +1,8 @@
+- render '/shared/error'
+%h1 I don't even know anymore
+= form_for(@user, url: wizard_path, method: :put) do |f|
+  = f.text_field :primary_language, placeholder: 'e.g. Ruby'
+  = f.text_field :human_language, placeholder: 'the language you speak irl'
+  = f.text_field :years_programming, placeholder: 'how many years have you programmed for?'
+  = f.text_field :industry, placeholder: 'e.x. Healthcare'
+  = f.submit 'End'
