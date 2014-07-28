@@ -14,12 +14,19 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+# dotenv gem keeps all api tokens hidden and secure
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+
+# haml. it's like bacon. only better.
+gem 'haml-rails'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -43,4 +50,7 @@ gem "omniauth-github", '1.1.1'
 
 # devise for user generation
 gem 'devise'
+
+# pry for testing
+gem 'pry'
 
