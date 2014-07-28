@@ -42,7 +42,6 @@ class User < ActiveRecord::Base
   def active_or_non_searchable?
     status.include?('searchable') || active?
   end
->>>>>>> b49220724a009a96d08d401afd1616e001e63cdc
 
   # check if the user has been created in the system yet, and if they have not
   # then create a new instance of user for them. this method checks for existence
