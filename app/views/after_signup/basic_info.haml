@@ -1,4 +1,4 @@
-- render '/shared/error'
+= render 'shared/error'
 %h1 Add some basic info
 = form_for(@user, url: wizard_path, method: :put) do |f|
   = f.text_field :name, placeholder: 'pick a username!'
