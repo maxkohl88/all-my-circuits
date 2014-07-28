@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20140728145054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -32,10 +33,10 @@ ActiveRecord::Schema.define(version: 20140728145054) do
     t.string   "provider",                            null: false
     t.string   "uid",                                 null: false
     t.string   "name",                                null: false
-    t.date     "bday",                                null: false
-    t.text     "zip",                                 null: false
-    t.text     "gender",                              null: false
-    t.text     "interested_in",                       null: false
+    t.date     "bday"
+    t.text     "zip"
+    t.text     "gender"
+    t.text     "interested_in"
     t.integer  "height"
     t.text     "primary_language"
     t.text     "human_language"
@@ -46,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140728145054) do
     t.text     "game_genre"
     t.text     "music_genre"
     t.text     "movie_genre"
+    t.text     "summary"
+    t.text     "profile_picture_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

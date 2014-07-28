@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:github]
 
+  # check if the user has been created in the system yet, and if they have not
+  # then create a new instance of user for them. this method checks for existence
+  # of the user based on their :provide and their :uid. neat!
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.email = auth.info.email
@@ -22,5 +25,4 @@ class User < ActiveRecord::Base
       end
     end 
   end
-
 end
