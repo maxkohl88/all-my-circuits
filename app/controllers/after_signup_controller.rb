@@ -5,7 +5,12 @@ class AfterSignupController < Wicked::WizardController
 
   def show
     @user = current_user
-    render_wizard
+
+    if @user.sign_in_count > 1
+      redirect_to user_path(@user.id)
+    else
+      render_wizard
+    end
   end
 
   def update
