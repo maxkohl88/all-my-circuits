@@ -11,9 +11,6 @@ class ConvosController < ApplicationController
     # 3) 'block' the conversation (should also hude full profile)
   end
 
-  def msgs
-  end
-
   private
 
   def convo_params
