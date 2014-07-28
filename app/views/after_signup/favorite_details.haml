@@ -3,7 +3,10 @@
 = form_for(@user, url: wizard_path, method: :put) do |f|
   = f.text_field :fav_animal, placeholder: 'cats or dogs?'
   = f.text_field :fav_book, placeholder: 'favorite book'
-  = f.text_field :game_genre, placeholder: 'favorite game genre'
-  = f.text_field :music_genre, placeholder: 'favorite music genre'
-  = f.text_field :movie_genre, placeholder: 'favorite movie genre'
+  = f.label :game_genre, 'Favorite game genre'
+  = f.select :game_genre, %w(Shooter Puzzle Racing RPG Sports Survival-Horror Indie)
+  = f.label :music_genre, 'Favorite music genre'
+  = f.select :music_genre, %w(Rock Rap Jazz Blues Classical Electronic Country World)
+  = f.label :movie_genre, 'Favorite movie genre'
+  = f.select :movie_genre, %w(Horror Comedy Action Rom-Com Sci-Fi Kung-Fu Drama Documentary)
   = f.submit 'Next'
