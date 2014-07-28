@@ -1,4 +1,1 @@
-- if user_signed_in?
-  = "Welcome #{current_user.name}"
-- else
-  = link_to 'sign up with github', user_omniauth_authorize_path(:github)
+= link_to 'sign up with github', user_omniauth_authorize_path(:github)

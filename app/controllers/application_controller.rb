@@ -5,9 +5,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  # def after_sign_in_path_for(resource)
-  #   user_path
-  # end
+  # after_sign_in vs. after_sign_up_path_for
+  #
+  def after_sign_in_path_for(resource)
+    after_signup_path(:basic_info)
+  end
 
   def new_session_path(scope)
     new_user_session_path
