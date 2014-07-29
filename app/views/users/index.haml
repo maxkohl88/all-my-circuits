@@ -3,12 +3,12 @@
 %p have a copy of search bar to re-search
 
 - @users.each do |user|
-  %h4 
+  %h4
     = user.email
-  %h6 
+  %h6
     = user.gender
 
-= form_tag '/users', id: 'search-form' do
+= form_tag '/users', id: 'search-form', method: 'get' do
   = label_tag :zip
   = text_field_tag :zip
   = label_tag :game_genre
@@ -25,3 +25,4 @@
   = select_tag 'min_age', options_for_select(18..75)
   = label_tag :max_age
   = select_tag 'max_age', options_for_select(18..75)
+  = submit_tag 'Search!'
