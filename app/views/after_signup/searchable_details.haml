@@ -1,4 +1,4 @@
-- render '/shared/error'
+= render 'shared/error'
 %h1 These are some things that people can find you by!
 = form_for(@user, url: wizard_path, method: :put) do |f|
   = f.text_field :fav_animal, placeholder: 'cats or dogs?'
