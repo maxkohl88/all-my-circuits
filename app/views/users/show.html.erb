@@ -1,0 +1,35 @@
+<h2> Here's  your profile </h2>
+
+
+
+<div id='summary'>
+  <%= @user.summary %>
+</div>
+
+<div id='avatar'>
+  <img src="<% @user.profile_picture_url %>" />
+</div>
+
+<div class='descriptor_box' id='dev_attr'>
+  <%= @user.primary_language %>
+  <%= @user.industry %>
+  <%= @user.years_programming %>
+  <%= @user.human_language %>
+</div>
+
+<div class='descriptor_box' id='vital_info'>
+  <%= @user.bday %>
+  <%= @user.zip %>
+  <%= @user.gender %>
+  <%= @user.interested_in %>
+  <%= @user.height %>
+</div>
+
+<div class='descriptor_box' id='fave_stuff1'>
+  <%= @user.fav_animal %>
+  <%= @user.fav_book %>
+  <%= @user.game_genre %>
+  <%= @user.music_genre %>
+  <%= @user.movie_genre %>
+</div>
+
