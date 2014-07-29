@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:github]
 
-<<<<<<< HEAD
   LANGUAGES = {
   c: 'http://jtmgroup.in/images/arch-C_logo.png',
   java: 'http://nowthatiseasy.com/wp-content/uploads/2012/09/java-logo-large-500x500-370x330.png',
