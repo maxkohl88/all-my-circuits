@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @users = User.where(gender: current_user.interested_in,
                         interested_in: current_user.gender)
     # if search terms, compound search with each term's value
+    # browser accepts parameters, missing index.html.erb
+    # looks like it will work if search options are submitted through params
     User::SEARCHABLE.each do |term|
       if params[term]
         @users = @users.select { |user| user[term] == params[term] }
