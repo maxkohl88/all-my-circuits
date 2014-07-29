@@ -35,3 +35,6 @@
   Favorite movie genre: <%= @user.movie_genre %><br>
 </div>
 
+<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+
+<%= link_to 'Search for matches', users_path %>

@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  SEARCHABLE = [:zip, :gender, :interested_in,
+                :game_genre, :music_genre, :movie_genre, :human_language]
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:github]
@@ -14,10 +18,7 @@ class User < ActiveRecord::Base
   ruby: 'http://www.igorshare.com/images/ruby_logo.png'
 }
 
-
-
   validates :name, :bday, :zip, :gender, :interested_in, :height, :summary,
-
   presence: true, if: :active_or_basic?
 
   validates :fav_animal, :fav_book, :game_genre, :music_genre, :movie_genre,
@@ -25,13 +26,6 @@ class User < ActiveRecord::Base
 
   validates :primary_language, :human_language, :industry,
   presence: true, if: :active_or_non_searchable?
-
-  # #validate that the name has at least 3 characters
-  # validates :name, length: {minimum: 3}
-
-  # #validate that the bday format is correct
-  # validates :bday, format:
-  # { :with => /[1-2]{1}[0-9]{3}\/[0-1]{1}[0-9]{1}\/[0-3]{1}[0-9]{1}/ }
 
   def active?
     status == 'active'
@@ -69,4 +63,7 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+
 end
+
