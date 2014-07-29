@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   #check if the user is signed in when they visit the homepage
   before_action :authenticate_user!
 
-
   def index
     @users = User.search(search_params)
   end

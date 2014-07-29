@@ -1,13 +1,14 @@
-<h2> Here's  your profile </h2>
+<h2><%= @user.uid %>'s profile </h2>
 
 
 
 <div id='summary'>
+  <h4>Summary</h4>
   <%= @user.summary %>
 </div>
 
 <div id='avatar'>
-  <img src="<% @user.profile_picture_url %>" />
+  <img src='\"'<% @user.profile_picture_url %>'\"' />
 </div>
 
 <div class='descriptor_box' id='dev_attr'>
