@@ -2,7 +2,13 @@
 
 %p have a copy of search bar to re-search
 
-= form_tag '/users', id: 'search-form' do
+- @users.each do |user|
+  %h4
+    = user.email
+  %h6
+    = user.gender
+
+= form_tag '/users', id: 'search-form', method: 'get' do
   = label_tag :zip
   = text_field_tag :zip, ''
   = label_tag :human_language, 'Language'
@@ -22,9 +28,3 @@
   = label_tag :max_age
   = select_tag 'max_age', options_for_select(18..75), include_blank: true
   = submit_tag 'Search'
-
-- @users.each do |user|
-  %h4 
-    = user.email
-  %h6 
-    = user.gender
