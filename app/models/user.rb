@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  SEARCHABLE = [:bday, :zip, :gender, :interested_in, :height]
+  SEARCHABLE_IF_PRESENT = [:fav_animal, :game_genre, :music_genre, :movie_genre,
+                           :human_language]
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:github]
