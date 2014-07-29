@@ -1,0 +1,15 @@
+= render 'shared/error'
+%h1 Developer Vitals
+= form_for(@user, url: wizard_path, method: :put) do |f|
+  = f.label :primary_language, 'Favorite coding language*'
+  = f.select :primary_language, %w(Ruby C Javascript Java Perl Python)
+  = f.label :human_language, 'Your spoken language:*'
+  = f.text_field :human_language, placeholder: 'Elvish?'
+  = f.label :years_programming, 'Programming experience:'
+  = f.text_field :years_programming, placeholder: 'in years'
+  = f.label :industry, 'Industry:*'
+  = f.text_field :industry, placeholder: 'e.x. Healthcare'
+  = f.submit 'Next'
+
+= render 'wizard_notes'
+
