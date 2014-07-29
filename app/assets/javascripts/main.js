@@ -54,12 +54,16 @@ var runSearch = function(event) {
   if (queryTerm === "") { queryTerm = 75; }
   queryString += 'max_age=' + queryTerm + '&';
 
-  debugger;
-
-
   $.ajax({
     url: "http://localhost:3000/users" + queryString,
-    type: 'get',
+    type: 'GET',
     dataType: 'json'
-  }).done(/* clear all results on search page, handlebar and append new results */);
+  })
+  .done(function(users) {
+    debugger;
+  })
+  .fail();
 };
+
+/* clear all results on search page,
+          handlebar and append new results */

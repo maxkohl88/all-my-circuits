@@ -2,6 +2,12 @@ class UsersController < ApplicationController
   #check if the user is signed in when they visit the homepage
   before_action :authenticate_user!
 
+  def default_serializer_options
+    {root: false}
+  end
+
+  respond_to :json, :html
+
   def index
     # if no search terms, search gender + interested_in
     # Special cases for 'both'
@@ -30,6 +36,7 @@ class UsersController < ApplicationController
         user.height <= params[:max_height].to_i
       end
     end
+    respond_with @users
   end
 
 
