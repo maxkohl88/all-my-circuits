@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   #check if the user is signed in when they visit the homepage
   before_action :authenticate_user!
 
-
   def index
     # if no search terms, search gender + interested_in
     # Special cases for 'both'
@@ -57,5 +56,4 @@ class UsersController < ApplicationController
                                  :fav_book, :industry, :years_programming,
                                  :primary_language)
   end
-
 end

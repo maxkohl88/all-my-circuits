@@ -9,6 +9,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:github]
 
+  LANGUAGES = {
+  c: 'http://jtmgroup.in/images/arch-C_logo.png',
+  java: 'http://nowthatiseasy.com/wp-content/uploads/2012/09/java-logo-large-500x500-370x330.png',
+  javascript: 'http://webwalker.to/show/Lib/images/logo-javascript.jpg',
+  perl: 'http://mike.anobile.info/wp-content/uploads/2012/10/perl_logo.jpg',
+  python: 'http://softwarespk.com/wp-content/uploads/2014/01/Download-Python-3.3.3-Full-Version.jpg?d1a4dd',
+  ruby: 'http://www.igorshare.com/images/ruby_logo.png'
+}
+
   validates :name, :bday, :zip, :gender, :interested_in, :height, :summary,
   presence: true, if: :active_or_basic?
 
