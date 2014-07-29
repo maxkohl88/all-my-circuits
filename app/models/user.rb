@@ -14,13 +14,6 @@ class User < ActiveRecord::Base
   validates :primary_language, :human_language, :industry,
   presence: true, if: :active_or_non_searchable?
 
-  # #validate that the name has at least 3 characters
-  # validates :name, length: {minimum: 3}
-
-  # #validate that the bday format is correct
-  # validates :bday, format:
-  # { :with => /[1-2]{1}[0-9]{3}\/[0-1]{1}[0-9]{1}\/[0-3]{1}[0-9]{1}/ }
-
   def active?
     status == 'active'
   end
