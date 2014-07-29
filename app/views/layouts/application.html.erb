@@ -8,9 +8,7 @@
 </head>
 <body>
 
-<%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-warning btn-sm' do %>
-<i class="glyphicon glyphicon-log-out"> Logout</i>
-<% end %>
+<%= render 'layouts/header' %>
 
 <%= yield %>
 
