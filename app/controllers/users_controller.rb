@@ -32,11 +32,17 @@ class UsersController < ApplicationController
   private
 
   def search_params
-    params.require(:user).permit(:essentials, :searchable)
+    params.require(:user).permit(:bday, :zip, :gender, :interested_in, :height,
+                                 :fav_animal, :game_genre, :music_genre,
+                                 :movie_genre, :human_language)
   end
 
   def user_params
-    params.require(:user).permit(:essentials, :summary, :personal, :searchable)
+    params.require(:user).permit(:bday, :zip, :gender, :interested_in, :height,
+                                 :fav_animal, :game_genre, :music_genre,
+                                 :movie_genre, :human_language, :summary,
+                                 :fav_book, :industry, :years_programming,
+                                 :primary_language)
   end
 
 
