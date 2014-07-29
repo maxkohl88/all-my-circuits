@@ -59,3 +59,6 @@ gem 'devise'
 # pry for testing
 gem 'pry'
 
+# Faker for seed data
+gem 'faker'
+
