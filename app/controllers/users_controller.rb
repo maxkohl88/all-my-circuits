@@ -16,10 +16,21 @@ class UsersController < ApplicationController
     # looks like it will work if search options are submitted through params
     User::SEARCHABLE.each do |term|
       if params[term]
-        @users = @users.select { |user| user[term] == params[term] }
+          @users = @users.select { |user| user[term] == params[term] }
       end
     end
-    binding.pry
+    if params[:min_age] && params[:max_age]
+      @users = @users.select do |user|
+        (((Date.today - user[:bday]) / 365) >= params[:min_age].to_i) &&
+        (((Date.today - user[:bday]) / 365) <= params[:max_age].to_i)
+      end
+    end
+    if params[:min_height] && params[:max_height]
+      @users = @users.select do |user|
+        user.height >= params[:min_height].to_i &&
+        user.height <= params[:max_height].to_i
+      end
+    end
   end
 
 
