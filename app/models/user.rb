@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:github]
 
+<<<<<<< HEAD
   LANGUAGES = {
   c: 'http://jtmgroup.in/images/arch-C_logo.png',
   java: 'http://nowthatiseasy.com/wp-content/uploads/2012/09/java-logo-large-500x500-370x330.png',
@@ -15,15 +16,15 @@ class User < ActiveRecord::Base
 }
 
 
-  validates :name, :bday, :zip, :gender, :interested_in, :height,
-  presence: true, if: :active_or_basic?
 
-  validates :summary, presence: true, if: :active_or_summary?
+  validates :name, :bday, :zip, :gender, :interested_in, :height, :summary,
+
+  presence: true, if: :active_or_basic?
 
   validates :fav_animal, :fav_book, :game_genre, :music_genre, :movie_genre,
   presence: true, if: :active_or_favorite?
 
-  validates :primary_language, :human_language, :years_programming, :industry,
+  validates :primary_language, :human_language, :industry,
   presence: true, if: :active_or_non_searchable?
 
   # #validate that the name has at least 3 characters
@@ -41,16 +42,12 @@ class User < ActiveRecord::Base
     self.status.include?('basic') || active?
   end
 
-  def active_or_summary?
-    status.include?('summary') || active?
-  end
-
   def active_or_favorite?
     status.include?('favorite') || active?
   end
 
   def active_or_non_searchable?
-    status.include?('searchable') || active?
+    status.include?('developer') || active?
   end
 
   # check if the user has been created in the system yet, and if they have not

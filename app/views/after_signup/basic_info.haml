@@ -1,26 +1,30 @@
 = render 'shared/error'
 %h1 Add some basic info
 = form_for(@user, url: wizard_path, method: :put) do |f|
-  = f.label 'username'
+  = f.label 'username*'
   = f.text_field :name
-  = f.label 'Date of Birth'
+  = f.label 'Date of Birth*'
   = f.date_select :bday, start_year: 1980
-  = f.label 'Zipcode'
+  = f.label 'Zipcode*'
   = f.text_field :zip, placeholder: 'Enter your zipcode'
   %span.gender-select
-    = f.label :gender, 'Gender'
+    = f.label :gender, 'Gender*'
     = f.radio_button :gender, 'male'
     = f.label :gender_male, 'Male'
     = f.radio_button :gender, 'female'
     = f.label :gender_female, 'Female'
   %span.gender-interest
-    = f.label "I'm interested in:"
+    = f.label "I'm interested in:*"
     = f.radio_button :interested_in, 'male'
-    = f.label :interested_in_male, 'Male'
+    = f.label :interested_in_men, 'Men'
     = f.radio_button :interested_in, 'female'
-    = f.label :interested_in_female, 'Female'
+    = f.label :interested_in_women, 'Women'
     = f.radio_button :interested_in, 'both'
     = f.label :interested_in_both, 'Both'
-  = f.label 'How tall are you?'
+  = f.label 'How tall are you?*'
   = f.text_field :height, placeholder: 'in inches'
+  = f.label 'Tell everyone a bit about yourself:*'
+  = f.text_area :summary, placeholder: 'You, in words.'
   = f.submit 'Next'
+
+= render 'wizard_notes'
