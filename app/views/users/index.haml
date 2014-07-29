@@ -2,26 +2,29 @@
 
 %p have a copy of search bar to re-search
 
+= form_tag '/users', id: 'search-form' do
+  = label_tag :zip
+  = text_field_tag :zip, ''
+  = label_tag :human_language, 'Language'
+  = text_field_tag :human_language, ''
+  = label_tag :game_genre
+  = select_tag 'game_genre', options_for_select(%w(Shooter Strategy Puzzle Racing RPG Sports Survival-Horror Indie)), include_blank: true
+  = label_tag :music_genre
+  = select_tag 'music_genre', options_for_select(%w(Rock Rap Jazz Blues Classical Electronic Country World)), include_blank: true
+  = label_tag :movie_genre
+  = select_tag 'movie_genre', options_for_select(%w(Horror Comedy Action Rom-Com Sci-Fi Kung-Fu Drama Documentary)), include_blank: true
+  = label_tag :min_height
+  = select_tag 'min_height', options_for_select(48..96), include_blank: true
+  = label_tag :max_height
+  = select_tag 'max_height', options_for_select(48..96), include_blank: true
+  = label_tag :min_age
+  = select_tag 'min_age', options_for_select(18..75), include_blank: true
+  = label_tag :max_age
+  = select_tag 'max_age', options_for_select(18..75), include_blank: true
+  = submit_tag 'Search'
+
 - @users.each do |user|
   %h4 
     = user.email
   %h6 
     = user.gender
-
-= form_tag '/users', id: 'search-form' do
-  = label_tag :zip
-  = text_field_tag :zip
-  = label_tag :game_genre
-  = select_tag 'game_genre', options_for_select(%w(Shooter Strategy Puzzle Racing RPG Sports Survival-Horror Indie))
-  = label_tag :music_genre
-  = select_tag 'music_genre', options_for_select(%w(Rock Rap Jazz Blues Classical Electronic Country World))
-  = label_tag :movie_genre
-  = select_tag 'movie_genre', options_for_select(%w(Horror Comedy Action Rom-Com Sci-Fi Kung-Fu Drama Documentary))
-  = label_tag :min_height
-  = select_tag 'min_height', options_for_select(48..96)
-  = label_tag :max_height
-  = select_tag 'max_height', options_for_select(48..96)
-  = label_tag :min_age
-  = select_tag 'min_age', options_for_select(18..75)
-  = label_tag :max_age
-  = select_tag 'max_age', options_for_select(18..75)
