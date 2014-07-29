@@ -4,7 +4,16 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.search(search_params)
+    # if no search terms, search gender + interested_in
+    # not properly handling 'both' --- might be better to represent as null
+    @users = User.where(gender: current_user.interested_in,
+                        interested_in: current_user.gender)
+    # if search terms, compound search with each term's value
+    User::SEARCHABLE.each do |term|
+      if search_params[term]
+        @users = @users.select { |user| user.term == search_params[term] }
+      end
+    end
   end
 
   def new
@@ -15,19 +24,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # self.search function on the user model
-
   def update
   end
 
   def destroy
   end
-
-  def preferences
-    #colorscheme
-    #destroy
-  end
-
 
   private
 
