@@ -10,8 +10,8 @@ class UsersController < ApplicationController
                         interested_in: current_user.gender)
     # if search terms, compound search with each term's value
     User::SEARCHABLE.each do |term|
-      if search_params[term]
-        @users = @users.select { |user| user.term == search_params[term] }
+      if params[term]
+        @users = @users.select { |user| user[term] == params[term] }
       end
     end
   end
@@ -32,11 +32,11 @@ class UsersController < ApplicationController
 
   private
 
-  def search_params
-    params.require(:user).permit(:bday, :zip, :gender, :interested_in, :height,
-                                 :fav_animal, :game_genre, :music_genre,
-                                 :movie_genre, :human_language)
-  end
+  # def search_params
+  #   params.require(:user).permit(:bday, :zip, :gender, :interested_in, :height,
+  #                                :fav_animal, :game_genre, :music_genre,
+  #                                :movie_genre, :human_language)
+  # end
 
   def user_params
     params.require(:user).permit(:bday, :zip, :gender, :interested_in, :height,
