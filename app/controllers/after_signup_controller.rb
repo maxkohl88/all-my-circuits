@@ -1,7 +1,7 @@
 class AfterSignupController < Wicked::WizardController
   before_filter :authenticate_user!
 
-  steps :basic_info, :summary, :favorite_details, :non_searchable_details
+  steps :basic_info, :developer_vitals, :favorite_details
 
   def show
     @user = current_user

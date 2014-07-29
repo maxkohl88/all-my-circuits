@@ -5,15 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:github]
 
-  validates :name, :bday, :zip, :gender, :interested_in, :height,
+  validates :name, :bday, :zip, :gender, :interested_in, :height, :summary,
   presence: true, if: :active_or_basic?
-
-  validates :summary, presence: true, if: :active_or_summary?
 
   validates :fav_animal, :fav_book, :game_genre, :music_genre, :movie_genre,
   presence: true, if: :active_or_favorite?
 
-  validates :primary_language, :human_language, :years_programming, :industry,
+  validates :primary_language, :human_language, :industry,
   presence: true, if: :active_or_non_searchable?
 
   # #validate that the name has at least 3 characters
@@ -31,16 +29,12 @@ class User < ActiveRecord::Base
     self.status.include?('basic') || active?
   end
 
-  def active_or_summary?
-    status.include?('summary') || active?
-  end
-
   def active_or_favorite?
     status.include?('favorite') || active?
   end
 
   def active_or_non_searchable?
-    status.include?('searchable') || active?
+    status.include?('developer') || active?
   end
 
   # check if the user has been created in the system yet, and if they have not
