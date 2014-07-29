@@ -10,18 +10,11 @@ class User < ActiveRecord::Base
 
   validates :summary, presence: true, if: :active_or_summary?
 
-  validates :fav_animal, :fav_book, :game_genre, :music_genre, :movie_genre,
-  presence: true, if: :active_or_favorite?
+  # validates :fav_animal, :fav_book, :game_genre, :music_genre, :movie_genre,
+  # presence: true, if: :active_or_favorite?
 
   validates :primary_language, :human_language, :years_programming, :industry,
   presence: true, if: :active_or_non_searchable?
-
-  # #validate that the name has at least 3 characters
-  # validates :name, length: {minimum: 3}
-
-  # #validate that the bday format is correct
-  # validates :bday, format:
-  # { :with => /[1-2]{1}[0-9]{3}\/[0-1]{1}[0-9]{1}\/[0-3]{1}[0-9]{1}/ }
 
   def active?
     status == 'active'
