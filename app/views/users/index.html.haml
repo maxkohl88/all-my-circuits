@@ -26,10 +26,10 @@
 .search-result-container
   %ol.search-results
     - @users.each do |user|
-      %li.result-preview
+      %li.result-preview{user_id: user.id}
         %ol.result-contents
-          %li.result-image 
-            %img{src: User::LANGUAGES[:ruby], class: 'language-logo'}
+          %li.result-image
+            %img{src: User::LANGUAGES[user.primary_language.to_sym], class: 'language-logo'}
           %li.result-summary
             = user.summary
           %li.like-button-container

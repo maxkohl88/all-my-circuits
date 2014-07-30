@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, 
+  devise_for :users,
   :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root to: 'home#show'
@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     # get 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  match '/sendlike', to: 'chats#find_or_create', via: 'post'
+  resources :chats, only: [:index, :create, :destroy, :update]
   resources :users
   resources :after_signup
   # The priority is based upon order of creation: first created -> highest priority.
