@@ -30,11 +30,13 @@ User.delete_all
                fav_animal: 'wombat', fav_book: 'catcher', game_genre: 'RPG', music_genre: 'rock',
                movie_genre: 'Action', status: 'active', summary: 'Yoyo')
   puts "made user #{i}--2"
-end
 
-User.create!(email: Faker::Internet.safe_email, password: Faker::Internet.password,
-               provider: 'github', uid: 10101010, name: "oldie", bday: '1930-01-01',
+  User.create!(email: Faker::Internet.safe_email, password: Faker::Internet.password,
+               provider: 'github', uid: 10101010, name: "oldie", bday: '1950-01-01',
                zip: 10024, gender: 'female', interested_in: 'male', height: 40, primary_language: 'c++',
                human_language: 'English', years_programming: 10, industry: 'web',
-               fav_animal: 'wombat', fav_book: 'catcher', game_genre: 'RPG', music_genre: 'rock',
+               fav_animal: 'wombat', fav_book: 'catcher', game_genre: 'Shooter', music_genre: 'rock',
                movie_genre: 'Action', status: 'active', summary: 'Yoyo')
+
+end
+
