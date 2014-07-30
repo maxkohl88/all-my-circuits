@@ -2,25 +2,6 @@
 
 %p have a copy of search bar to re-search
 
-
-.search-result-container
-  %ol.search-results
-    - @users.each do |user|
-      %li.result-preview
-        %ol.result-contents
-          %li.result-image 
-            %img{src: User::LANGUAGES[:ruby], class: 'language-logo'}
-          %li.result-summary
-            This is where the summary for each user will go. For example, my
-            summary is as follows: I like bacon, golf, Ruby, and pizzas with
-            bacon on them. I am not, and never have been, a robot. 
-          %li.like-button-container
-            %button.like-button Like
-      .drawer-handle
-        %span.drawer-cta Click to expand
-
-
-
 = form_tag '/users', id: 'search-form', method: 'get' do
   = label_tag :zip
   = text_field_tag :zip, ''
@@ -42,8 +23,19 @@
   = select_tag 'max_age', options_for_select(18..75), include_blank: true
   = submit_tag 'Search'
 
-- @users.each do |user|
-  %h4
-    = user.email
-  %h6
-    = user.gender
+.search-result-container
+  %ol.search-results
+    - @users.each do |user|
+      %li.result-preview
+        %ol.result-contents
+          %li.result-image 
+            %img{src: User::LANGUAGES[:ruby], class: 'language-logo'}
+          %li.result-summary
+            This is where the summary for each user will go. For example, my
+            summary is as follows: I like bacon, golf, Ruby, and pizzas with
+            bacon on them. I am not, and never have been, a robot. 
+          %li.like-button-container
+            %button.like-button Like
+      .drawer-handle
+        %span.drawer-cta Click to expand
+
