@@ -59,10 +59,15 @@ var runSearch = function(event) {
     type: 'GET',
     dataType: 'json'
   })
-  .done(function(users) {
-    debugger;
+  .done(function(data) {
+
+    $('#results').empty();
+    $('#results').append(HandlebarsTemplates.search_index(data));
+
   })
-  .fail();
+  .fail(function() {
+    console.log('total failure');
+  });
 };
 
 /* clear all results on search page,

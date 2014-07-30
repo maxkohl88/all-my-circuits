@@ -64,6 +64,11 @@ GEM
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
+    handlebars_assets (0.17.1)
+      execjs (>= 1.2.9)
+      multi_json
+      sprockets (>= 2.0.3)
+      tilt
     hashie (3.2.0)
     hike (1.2.3)
     i18n (0.6.11)
@@ -179,6 +184,7 @@ DEPENDENCIES
   dotenv-rails
   faker
   haml-rails
+  handlebars_assets
   jquery-rails
   omniauth-github (= 1.1.1)
   pg

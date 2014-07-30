@@ -63,3 +63,5 @@ gem 'pry'
 # Faker for seed data
 gem 'faker'
 
+gem 'handlebars_assets'
+
