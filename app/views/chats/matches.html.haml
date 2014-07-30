@@ -1,8 +1,8 @@
 #match_page_container
   %nav.main_nav
     %ul.nav_links
-      %li 
-        = link_to 'My Profile', user_path(@user)
+      %li
+        = link_to 'My Profile', user_path(current_user)
       %li
         = link_to 'Search', users_path
       %li Matches
@@ -13,6 +13,7 @@
       .waiting-for-like-container
         %ul.waiting-list
           -# user.each where they've started a convo but the match hasn't accepted
+          -binding.pry
     .right-container.col-1-2
       %span Active matches
       .active-matches-container

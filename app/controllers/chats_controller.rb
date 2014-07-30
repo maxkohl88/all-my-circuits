@@ -19,6 +19,17 @@ class ChatsController < ApplicationController
     end
   end
 
+  def matches
+    @waiting_matches = current_user.chats1.where(u2_like: false)
+    @matches = current_user.chats1
+    @matches += current_user.chats2
+    @active_matches = @matches.select do |chat|
+      ((chat.u2_like == true) &&
+      (chat.u1_like == true) &&
+      (chat.blocked == false))
+    end
+  end
+
   def create
   end
 
@@ -28,8 +39,6 @@ class ChatsController < ApplicationController
   def update
   end
 
-  def matches
-  end
 
   private
 
