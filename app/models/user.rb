@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
+  has_many :chats1, foreign_key: :u1_id, class_name: 'Chat'
+  has_many :chats2, foreign_key: :u2_id, class_name: 'Chat'
+
   SEARCHABLE = [:zip, :gender, :interested_in,
                 :game_genre, :music_genre, :movie_genre, :human_language]
 
