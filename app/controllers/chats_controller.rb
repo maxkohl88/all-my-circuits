@@ -4,11 +4,11 @@ class ChatsController < ApplicationController
   end
 
   def find_or_create
-    chat =  Chat.where(u1: chats_params[:u2], u2: current_user.id)
-    chat2 = Chat.where(u2: chats_params[:u2], u1: current_user.id)
-    if chat != []
-      chat.u2_like = true
-    elsif chat2 != []
+    @chat =  Chat.where(u1: chats_params[:u2], u2: current_user.id)
+    @chat2 = Chat.where(u2: chats_params[:u2], u1: current_user.id)
+    if @chat != []
+      @chat.update(@chat, u2_like: true)
+    elsif @chat2 != []
       puts 'Chat exists already, user cant like twice'
     else
       chat = Chat.create(u1: current_user.id, u2: chats_params[:u2], u1_like: true)

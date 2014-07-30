@@ -86,11 +86,9 @@ var runSearch = function(event) {
     dataType: 'json'
   })
   .done(function(data) {
-
-    $('#results').empty();
-    $('#results').append(HandlebarsTemplates.search_index(data));
+    $('.search-results').empty();
+    $('.search-results').append(HandlebarsTemplates.search_index(data));
     $('.extended-profile').hide();
-
   })
   .fail(function() {
     console.log('total failure');
