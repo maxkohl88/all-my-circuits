@@ -1,4 +1,4 @@
-ol.search-results {
+ol#search-results {
   list-style-type: none;
   margin: 0 auto;
 }
@@ -14,7 +14,7 @@ li.result-preview {
   -webkit-border-radius: 15px 15px 3px 3px;
   -moz-border-radius: 15px 15px 3px 3px;
   border-radius: 15px 15px 3px 3px;
-  box-shadow: 4px 4px 3px -1px rgba(116, 172, 241, 0.75);
+  box-shadow: 4px 4px 3px -1px rgba(166, 226, 46, 0.75);
 }
 
 .drawer-handle {
