@@ -7,13 +7,16 @@ class ChatsController < ApplicationController
     @chat =  Chat.where(u1: chats_params[:u2], u2: current_user.id)
     @chat2 = Chat.where(u2: chats_params[:u2], u1: current_user.id)
     if @chat != []
-      @chat.update(@chat, u2_like: true)
+      if !@chat.u2_like
+        @chat.update(@chat, u2_like: true)
+      else
+        puts 'chat exists already, cant like twice'
+      end
     elsif @chat2 != []
       puts 'Chat exists already, user cant like twice'
     else
       chat = Chat.create(u1: current_user.id, u2: chats_params[:u2], u1_like: true)
     end
-    redirect_to :back
   end
 
   def create
