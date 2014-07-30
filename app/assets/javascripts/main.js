@@ -5,6 +5,10 @@ $(document).ready(function() {
   });
 
 
+  $('.extended-profile').hide();
+  $('.search-results').on('click', '.drawer-cta', function() {
+    $(this).parent().children('.extended-profile').toggle();
+  });
 });
 
 var runSearch = function(event) {
@@ -63,12 +67,10 @@ var runSearch = function(event) {
 
     $('#results').empty();
     $('#results').append(HandlebarsTemplates.search_index(data));
+    $('.extended-profile').hide();
 
   })
   .fail(function() {
     console.log('total failure');
   });
 };
-
-/* clear all results on search page,
-          handlebar and append new results */
