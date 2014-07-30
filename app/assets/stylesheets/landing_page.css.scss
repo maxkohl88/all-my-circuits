@@ -1,0 +1,17 @@
+body {
+  padding: none;
+}
+
+#top-half {
+  text-align: center;
+  height: 400px;
+  position: relative;
+  background-color: rgba(231, 76, 60,1.0);
+}
+
+#sign-up-button {
+  vertical-align: bottom;
+  position: absolute;
+  bottom: 0;
+  margin-left: -75px;
+}

@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   javascript: 'http://webwalker.to/show/Lib/images/logo-javascript.jpg',
   perl: 'http://mike.anobile.info/wp-content/uploads/2012/10/perl_logo.jpg',
   python: 'http://softwarespk.com/wp-content/uploads/2014/01/Download-Python-3.3.3-Full-Version.jpg?d1a4dd',
-  ruby: 'http://www.igorshare.com/images/ruby_logo.png'
+  ruby: 'assets/language-logos/ruby-logo.png'
 }
 
   validates :name, :bday, :zip, :gender, :interested_in, :height, :summary,
@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
       user.status = 'inactive'
-      # user.image = auth.info.image
+      user.profile_picture_url = auth.info.image.split('?')[0]
     end
   end
 

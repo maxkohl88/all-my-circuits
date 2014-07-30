@@ -23,18 +23,37 @@
   = select_tag 'max_age', options_for_select(18..75), include_blank: true
   = submit_tag 'Search'
 
-%ul#results
-  - @users.each do |u|
-    %li
-      %h2
-        - u.name
-      %img
-      %p
-        - u.summary
-      %div#like-button
-      %div#extend-button
-        %p
-          - u.game_genre
-        %p
-        %p
-        %p
+.search-result-container
+  %ol.search-results
+    - @users.each do |user|
+      %li.result-preview
+        %ol.result-contents
+          %li.result-image 
+            %img{src: User::LANGUAGES[:ruby], class: 'language-logo'}
+          %li.result-summary
+            = user.summary
+          %li.like-button-container
+            %button.like-button Like
+      .drawer-handle
+        %span.drawer-cta Click to expand
+        .extended-profile
+          %p
+            = user.primary_language
+          %p
+            = user.human_language
+          %p
+            = user.years_programming
+          %p
+            = user.industry
+          %p
+            = user.fav_animal
+          %p
+            = user.fav_book
+          %p
+            = user.height
+          %p
+            = user.game_genre
+          %p
+            = user.music_genre
+          %p
+            = user.movie_genre

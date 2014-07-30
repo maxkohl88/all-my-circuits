@@ -1,17 +1,22 @@
 {{#each this}}
-<li>
-  <h4>{{name}}</h4>
-  <div id="half-profile">
-    <div>
-      <img src="{{profile_picture_url}}" width="100" height="100">
-    </div>
-    <div id="summary">
+<li class='result-preview'>
+  <span class='username-preview'>{{name}}</span>
+  <ol class='result-contents'>
+    <li class='result-image'>
+      <img src="{{profile_picture_url}}" width="100" height="100", class ='language_logo'>
+    </li>
+    <li class="result-summary">
       <p>{{summary}}</p>
-    </div>
-    <div id="like-button"></div>
-    <div id="extend-button"></div>
-  </div>
-  <div id="extended-profile">
+    </li>
+    <li class='like-button-container'>
+      <button class="like-button">Like</button>
+    </li>
+  </ol>
+</li>
+<div class='drawer-handle'>
+  <span class='drawer-cta'>Click to expand</span>
+</div>
+  <div class="extended-profile">
 
     <p>{{primary_language}}</p>
     <p>{{human_language}}</p>
@@ -25,5 +30,4 @@
     <p>{{movie_genre}}</p>
 
   </div>
-</li>
 {{/each}}

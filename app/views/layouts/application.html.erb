@@ -2,15 +2,14 @@
 <html>
 <head>
   <title>AllMyCircuits</title>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-warning btn-sm' do %>
-<i class="glyphicon glyphicon-log-out"> Logout</i>
-<% end %>
+<%= render 'layouts/header' %>
 
 <%= yield %>
 
