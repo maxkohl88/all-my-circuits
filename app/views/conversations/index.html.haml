@@ -1,0 +1,16 @@
+#conversation-page-container
+  %nav.main_nav
+    %ul.nav_links
+      %li 
+        = link_to 'My Profile', user_path(@user)
+      %li
+        = link_to 'Search', users_path
+      %li Matches
+      %li Conversations
+  %section.main_content.grid
+    .minified-tab-container.col-1-10
+      -# this is where the mini tabs will go when the chat window is open
+    .conversation-preview-container.col-8-10
+      -# this is where each chat preview/status/whatevs item will go 
+    .conversation-window-container.col-1-10
+      -# this is where the chat window will be hidden until a chat is fired up

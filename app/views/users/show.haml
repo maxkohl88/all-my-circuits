@@ -11,16 +11,16 @@
     %h2
       = @user.uid
       's profile
-    %top-container.grid
-      %left-container.col-1-3
+    .top-container.grid
+      .left-container.col-1-3
         #avatar
           %img{src: @user.profile_picture_url, class: 'profile-picture'}
-      %right-container.col-2-3
+      .right-container.col-2-3
         #summary
           %h4 Summary
           = @user.summary
     %mid-container.grid
-      %left-container.col-1-2
+      .left-container.col-1-2
         %h4 My programming stuff
         #dev_attr.descriptor_box
           Favorite language: #{@user.primary_language}
