@@ -1,0 +1,29 @@
+{{#each this}}
+<li>
+  <h4>{{name}}</h4>
+  <div id="half-profile">
+    <div>
+      <img src="{{profile_picture_url}}" width="100" height="100">
+    </div>
+    <div id="summary">
+      <p>{{summary}}</p>
+    </div>
+    <div id="like-button"></div>
+    <div id="extend-button"></div>
+  </div>
+  <div id="extended-profile">
+
+    <p>{{primary_language}}</p>
+    <p>{{human_language}}</p>
+    <p>{{years_programming}}</p>
+    <p>{{industDry}}</p>
+    <p>{{fav_animal}}</p>
+    <p>{{fav_book}}</p>
+    <p>{{height}}</p>
+    <p>{{game_genre}}</p>
+    <p>{{music_genre}}</p>
+    <p>{{movie_genre}}</p>
+
+  </div>
+</li>
+{{/each}}

@@ -39,3 +39,18 @@
       .drawer-handle
         %span.drawer-cta Click to expand
 
+%ul#results
+  - @users.each do |u|
+    %li
+      %h2
+        - u.name
+      %img
+      %p
+        - u.summary
+      %div#like-button
+      %div#extend-button
+        %p
+          - u.game_genre
+        %p
+        %p
+        %p
