@@ -1,14 +1,58 @@
 #profile_container.page_wrap
   %nav.main_nav
     %ul.nav_links
-      %li Profile
-      %li Browse
+      %li 
+        = link_to 'My Profile', user_path(@user)
+      %li
+        = link_to 'Search', users_path
       %li Matches
       %li Conversations
   %section.main_content
-    %h2 THIS BE YOUR PROFILE NERD
+    %h2
+      = @user.uid
+      's profile
+    %top-container.grid
+      %left-container.col-1-3
+        #avatar
+          %img{src: @user.profile_picture_url, class: 'profile-picture'}
+      %right-container.col-2-3
+        #summary
+          %h4 Summary
+          = @user.summary
+    %mid-container.grid
+      %left-container.col-1-2
+        %h4 My programming stuff
+        #dev_attr.descriptor_box
+          Favorite language: #{@user.primary_language}
+          %br
+            I do #{@user.industry}.
+            %br
+              I've been programming for #{@user.years_programming}
+              \#{@user.years_programming == 1 ? 'year' : 'years'}.
+              %br
+                I also speak #{@user.human_language}.
+      %right-container.col-1-2
+        %h4 Vitals
+        #vital_info.descriptor_box
+          Location: #{@user.zip}
+          %br
+            Gender: #{@user.gender}
+            %br
+              Interested in: #{@user.interested_in}
+              %br
+                Height: #{@user.height/12}'#{@user.height%12}
+    %bottom-container.grid
+      %h4 These are a few of my favorite things
+      #fave_stuff1.descriptor_box
+        Favorite animal: #{@user.fav_animal}
+        %br
+          Favorite book: #{@user.fav_book}
+          %br
+            Favorite type of game: #{@user.game_genre}
+            %br
+              Favorite music genre: #{@user.music_genre}
+              %br
+                Favorite movie genre: #{@user.movie_genre}
+                %br
   %section.match_preview
-    %section.likes_you
-      %span They've liked you
-    %section.you_like
-      %span You've liked them
+    %span You've liked these folks
