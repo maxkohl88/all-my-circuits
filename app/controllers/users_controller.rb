@@ -12,10 +12,13 @@ class UsersController < ApplicationController
     # if no search terms, search gender + interested_in
     # Special cases for 'both'
     if current_user.interested_in == 'both'
-      @users = User.where(interested_in: current_user.gender || 'both')
+      @users = User.where(interested_in: current_user.gender)
+      @users += User.where(interested_in: 'both')
     else
       @users = User.where(gender: current_user.interested_in,
-                        interested_in: current_user.gender || 'both')
+                        interested_in: current_user.gender)
+      @users += User.where(gender: current_user.interested_in,
+                        interested_in: 'both')
     end
     # if search terms, compound search with each term's value
     # looks like it will work if search options are submitted through params

@@ -9,7 +9,29 @@ $(document).ready(function() {
   $('.search-results').on('click', '.drawer-cta', function() {
     $(this).parent().children('.extended-profile').toggle();
   });
+  $('.search-results').on('click', '.like-button', function(event) {
+    findOrCreateChat(event);
+  });
 });
+
+var findOrCreateChat = function(event) {
+  event.preventDefault();
+  debugger;
+  var being_liked = $(event.target).closest('.result-preview').attr('user_id');
+
+  $.ajax({
+    type: 'post',
+    data: {chat: {u2: being_liked}},
+    url: 'http://localhost:3000/sendlike',
+    datatype: 'json'
+  }).done(findOrCreateCallback());
+
+};
+
+var findOrCreateCallback = function() {
+  console.log('in callback');
+  debugger;
+};
 
 var runSearch = function(event) {
   event.preventDefault();
@@ -64,11 +86,9 @@ var runSearch = function(event) {
     dataType: 'json'
   })
   .done(function(data) {
-
-    $('#results').empty();
-    $('#results').append(HandlebarsTemplates.search_index(data));
+    $('.search-results').empty();
+    $('.search-results').append(HandlebarsTemplates.search_index(data));
     $('.extended-profile').hide();
-
   })
   .fail(function() {
     console.log('total failure');
