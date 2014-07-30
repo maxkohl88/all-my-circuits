@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   $('.extended-profile').hide();
   $('.search-results').on('click', '.drawer-cta', function() {
-    $(this).parent().parent().children('.extended-profile').slideToggle(1000);
+    $(this).parent().parent().children('.result-preview').children('.extended-profile').slideToggle(700);
   });
   $('.search-results').on('click', '.like-button', function(event) {
     findOrCreateChat(event);
