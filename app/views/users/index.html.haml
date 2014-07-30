@@ -23,8 +23,18 @@
   = select_tag 'max_age', options_for_select(18..75), include_blank: true
   = submit_tag 'Search'
 
-- @users.each do |user|
-  %h4
-    = user.email
-  %h6
-    = user.gender
+%ul#results
+  - @users.each do |u|
+    %li
+      %h2
+        - u.name
+      %img
+      %p
+        - u.summary
+      %div#like-button
+      %div#extend-button
+        %p
+          - u.game_genre
+        %p
+        %p
+        %p
