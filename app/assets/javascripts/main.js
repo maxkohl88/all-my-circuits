@@ -9,7 +9,29 @@ $(document).ready(function() {
   $('.search-results').on('click', '.drawer-cta', function() {
     $(this).parent().children('.extended-profile').toggle();
   });
+  $('.search-results').on('click', '.like-button', function(event) {
+    findOrCreateChat(event);
+  });
 });
+
+var findOrCreateChat = function(event) {
+  event.preventDefault();
+  debugger;
+  var being_liked = $(event.target).closest('.result-preview').attr('user_id');
+
+  $.ajax({
+    type: 'post',
+    data: {chat: {u2: being_liked}},
+    url: 'http://localhost:3000/sendlike',
+    datatype: 'json'
+  }).done(findOrCreateCallback());
+
+};
+
+var findOrCreateCallback = function() {
+  console.log('in callback');
+  debugger;
+};
 
 var runSearch = function(event) {
   event.preventDefault();
