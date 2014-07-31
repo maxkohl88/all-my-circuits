@@ -36,7 +36,7 @@
                   %li.match-summary
                     = match.u2.summary
                   %li.block-button-container
-                    %button.block-button Block
+                    %button.block-button{data: match_id = match.id} Block
         %ul.joined-matches-list
           - @joined_matches.each do |match|
             .joined-container
@@ -47,4 +47,4 @@
                   %li.match-summary
                     = match.u1.summary
                   %li.block-button-container
-                    %button.block-button Block
+                    %button.block-button{data: match_id = match.id} Block

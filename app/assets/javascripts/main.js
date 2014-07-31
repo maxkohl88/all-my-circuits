@@ -22,8 +22,27 @@ $(document).ready(function() {
     unlikeUpdate(event);
   });
 
+  $('.active-matches-container').on('click', '.block-button', function(event) {
+    blockUpdate(event);
+  });
+
 });
 
+// update the chat, blocked = true
+// maybe add an 'Are you sure?' (no un-blocking)
+var blockUpdate = function(event) {
+  event.preventDefault();
+  var chatId = $(event.target).attr('data');
+  $.ajax({
+    type: 'patch',
+    datatype: 'json',
+    data: {chat: {blocked: true}},
+    url: 'http://localhost:3000/chats/' + chatId
+  })
+  .done(function() {
+    $(event.target).closest('.match-result').remove();
+  });
+};
 // user will be u1 if they are unliking
 var unlikeUpdate = function(event) {
   event.preventDefault();

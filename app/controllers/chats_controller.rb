@@ -53,6 +53,10 @@ class ChatsController < ApplicationController
   end
 
   def update
+    @chat = Chat.find(params[:id])
+    @chat.update(chats_params)
+    # responding with something serialized so it doesn't look for a template
+    respond_with current_user
   end
 
 
