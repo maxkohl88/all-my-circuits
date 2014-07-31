@@ -32,6 +32,7 @@ $(document).ready(function() {
   $('.active-conversation-list').on('click', '.conversation-preview-contents', function(event) {
     getMsgs(event);
   });
+
 });
 
 // get all messages to display in a chat
@@ -44,10 +45,13 @@ var getMsgs = function(event) {
     url: 'http://localhost:3000/chats/' + chatId + '/messages'
   })
   .done(function(data) {
-    debugger;
     console.log('yooooyo');
+    $('#conversation-window-container').css('width', '75%');
+    $('.conversation-preview-container').css('width', '10%');
+    $('.active-conversation-list').children('.conversation-preview').css('width', '10%');
     // bring out the chat body
     // append handlebar template for chat msgs
+    debugger;
 
   });
 };
