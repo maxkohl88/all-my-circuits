@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   match '/sendlike', to: 'chats#find_or_create', via: 'post'
   match '/matches', to: 'chats#matches', via: 'get'
-  resources :chats, only: [:index, :create, :destroy, :update]
+  resources :chats, only: [:index, :create, :destroy, :update] do
+    resources :messages, only: [:index, :create]
+  end
   resources :users
   resources :after_signup
   # The priority is based upon order of creation: first created -> highest priority.
