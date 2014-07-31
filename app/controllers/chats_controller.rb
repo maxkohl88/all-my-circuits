@@ -4,18 +4,19 @@ class ChatsController < ApplicationController
   end
 
   def find_or_create
-    @chat =  Chat.where(u1: chats_params[:u2], u2: current_user.id)
-    @chat2 = Chat.where(u2: chats_params[:u2], u1: current_user.id)
-    if @chat != []
+    @chat =  Chat.where(u1: chats_params[:u2], u2: current_user.id)[0]
+    @chat2 = Chat.where(u2: chats_params[:u2], u1: current_user.id)[0]
+    binding.pry
+    if @chat
       if !@chat.u2_like
-        @chat.update(@chat, u2_like: true)
+        @chat.update(u2_like: true)
       else
         puts 'chat exists already, cant like twice'
       end
-    elsif @chat2 != []
+    elsif @chat2
       puts 'Chat exists already, user cant like twice'
     else
-      chat = Chat.create(u1: current_user.id, u2: chats_params[:u2], u1_like: true)
+      chat = Chat.create(u1_id: current_user.id, u2_id: chats_params[:u2], u1_like: true)
     end
   end
 
@@ -37,6 +38,8 @@ class ChatsController < ApplicationController
   end
 
   def destroy
+    @chat = Chat.find(params[:id])
+    @chat.delete
   end
 
   def update

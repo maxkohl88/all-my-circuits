@@ -22,7 +22,7 @@
                   %li.match-summary
                     = match.u2.summary
                   %li.unlike-button-container
-                    %button.unlike-button Unlike
+                    %button.unlike-button{data: match_id = match.id} Unlike
     .right-container.col-1-2
       %span Active matches
       .active-matches-container

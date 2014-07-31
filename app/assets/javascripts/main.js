@@ -4,16 +4,41 @@ $(document).ready(function() {
     runSearch(event);
   });
 
-
+  // hide sliding drawers
   $('.extended-profile').hide();
+
+  // buttons for sliding drawers
   $('.search-results').on('click', '.drawer-cta', function() {
     $(this).parent().parent().children('.result-preview').children('.extended-profile').slideToggle(700);
   });
+
+  // buttons for likes
   $('.search-results').on('click', '.like-button', function(event) {
     findOrCreateChat(event);
   });
+
+  // buttons for unlikes
+  $('.waiting-for-like-container').on('click', '.unlike-button', function(event) {
+    unlikeUpdate(event);
+  });
+
 });
 
+// user will be u1 if they are unliking
+var unlikeUpdate = function(event) {
+  debugger;
+  var chatId = $(event.target).attr('data');
+  $.ajax({
+    type: 'delete',
+    url: 'http://localhost:3000/chats/' + chatId,
+  })
+  .done(function() {
+    console.log('in callback');
+  });
+};
+
+// on clicking 'like', successfully does find_or_create
+// BUT registers an internal server error
 var findOrCreateChat = function(event) {
   event.preventDefault();
   debugger;
