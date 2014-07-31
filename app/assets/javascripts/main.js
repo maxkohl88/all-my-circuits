@@ -52,6 +52,7 @@ var getMsgs = function(event) {
     // bring out the chat body
     // append handlebar template for chat msgs
     debugger;
+    $('.chat-content').append(HandlebarsTemplates.buildChat(data));
 
   });
 };
