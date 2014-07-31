@@ -30,6 +30,16 @@ class User < ActiveRecord::Base
   validates :primary_language, :human_language, :industry,
   presence: true, if: :active_or_non_searchable?
 
+  def been_liked(curr_user)
+
+    self.chats2.each do |chat|
+      if chat.u1_id == curr_user.id
+        return true
+      end
+    end
+    false
+  end
+
   def active?
     status == 'active'
   end

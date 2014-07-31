@@ -34,7 +34,10 @@
             %li.result-summary
               = user.summary
             %li.like-button-container
-              %button.like-button Like
+              - if user.been_liked(current_user)
+                %button.liked-button Like
+              - else
+                %button.like-button Like
           .extended-profile.grid
             .ep-left-section.col-1-2
               %p
