@@ -15,9 +15,54 @@
  */
 
 #header {
-  background-color: rgba(189, 195, 199,1.0);
+  background-color: rgba(38, 173, 228, 1);
+  height: 40px;
+  padding-top: 5px;
+}
+
+span.app-name {
+  margin-bottom: -10px;
+  margin-left: 60px;
+  font-size: 30px;
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+}
+
+.main_nav {
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
+  background-color: rgba(0, 0, 0, 0.97);
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.nav_links {
+  text-align: center;
+  padding-left: 0px;
+  list-style-type: none;
+  margin-top: 100px;
+  font-size: 32px;
+}
+
+.nav_link {
+  text-decoration: none;
+  color: rgba(77, 188,233, 1);
+}
+
+.nav-link-wrappers {
+  margin-bottom: 25px;
+}
+
+.main_content {
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
+  margin-left: 35px;
+  /*// height: 100%;*/
+  /*background-color: rgba(39, 40, 34, 0.97);*/
+  color: black;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 body {
   margin: 0px;
 }
+

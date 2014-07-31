@@ -1,16 +1,20 @@
 #conversation-page-container
-  %nav.main_nav
-    %ul.nav_links
-      %li 
-        = link_to 'My Profile', user_path(@user)
-      %li
-        = link_to 'Search', users_path
-      %li Matches
-      %li Conversations
+  = render 'layouts/nav'
+  
   %section.main_content.grid
-    .minified-tab-container.col-1-10
-      -# this is where the mini tabs will go when the chat window is open
-    .conversation-preview-container.col-8-10
-      -# this is where each chat preview/status/whatevs item will go 
-    .conversation-window-container.col-1-10
-      -# this is where the chat window will be hidden until a chat is fired up
+    .conversation-preview-container.col-3-4
+      %ul.active-conversation-list
+        %li.conversation-preview
+          %ul.conversation-preview-contents
+            %li.picture-preview
+            %li.username-preview
+
+    #conversation-window-container.col-1-20
+      #chat-window
+        #chat-display
+        %ul.chat-text-box
+          %li.icon-container
+            = image_tag('icons/triforce-icon.png', class: 'new-message-prompt')
+          %li.new-message-container
+            = form_tag '/chats', id: 'chat-submit', method: 'post' do
+              = text_field_tag :new_message, nil, placeholder: 'Enter new message...', class: 'new-message-field'
