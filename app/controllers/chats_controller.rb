@@ -8,6 +8,13 @@ class ChatsController < ApplicationController
   respond_to :json, :html
 
   def index
+    @chats = current_user.chats1
+    @chats += current_user.chats2
+    @chats.select do |chat|
+      ((chat.u1_like) &&
+       (chat.u2_like) &&
+       (!chat.blocked))
+    end
   end
 
   def find_or_create
