@@ -1,0 +1,10 @@
+{{#each this}}
+  {{#if user_sent}}
+    <li class="sent-message">
+  {{else}}
+    <li class="received-message">
+  {{/if}}
+  {{formatted_time}} -> {{content}}
+
+  </li>
+{{/each}}
