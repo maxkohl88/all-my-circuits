@@ -26,14 +26,14 @@ $(document).ready(function() {
 
 // user will be u1 if they are unliking
 var unlikeUpdate = function(event) {
-  debugger;
+  event.preventDefault();
   var chatId = $(event.target).attr('data');
   $.ajax({
     type: 'delete',
     url: 'http://localhost:3000/chats/' + chatId,
   })
   .done(function() {
-    console.log('in callback');
+    $(event.target).closest('.match-result').remove();
   });
 };
 
@@ -41,21 +41,21 @@ var unlikeUpdate = function(event) {
 // BUT registers an internal server error
 var findOrCreateChat = function(event) {
   event.preventDefault();
-  debugger;
-  var being_liked = $(event.target).closest('.result-preview').attr('user_id');
+  var that = $(event.target);
+  var being_liked = that.closest('.result-preview').attr('user_id');
 
   $.ajax({
     type: 'post',
     data: {chat: {u2: being_liked}},
     url: 'http://localhost:3000/sendlike',
     datatype: 'json'
-  }).done(findOrCreateCallback());
+  }).done(findOrCreateCallback(that));
 
 };
 
-var findOrCreateCallback = function() {
-  console.log('in callback');
-  debugger;
+var findOrCreateCallback = function(that) {
+  // change color of 'like' button
+  $(that).css('background-color', 'red');
 };
 
 var runSearch = function(event) {
