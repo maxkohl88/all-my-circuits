@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
+  has_many :chats1, foreign_key: :u1_id, class_name: 'Chat'
+  has_many :chats2, foreign_key: :u2_id, class_name: 'Chat'
+
   SEARCHABLE = [:zip, :gender, :interested_in,
                 :game_genre, :music_genre, :movie_genre, :human_language]
 
@@ -26,6 +29,16 @@ class User < ActiveRecord::Base
 
   validates :primary_language, :human_language, :industry,
   presence: true, if: :active_or_non_searchable?
+
+  def been_liked(curr_user)
+
+    self.chats2.each do |chat|
+      if chat.u1_id == curr_user.id
+        return true
+      end
+    end
+    false
+  end
 
   def active?
     status == 'active'

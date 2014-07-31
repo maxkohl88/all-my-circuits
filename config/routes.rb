@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   match '/sendlike', to: 'chats#find_or_create', via: 'post'
+  match '/matches', to: 'chats#matches', via: 'get'
   resources :chats, only: [:index, :create, :destroy, :update]
   resources :users
   resources :after_signup

@@ -33,55 +33,6 @@
       .search-submit
         = submit_tag 'Search', class: 'search-input-box'
 
-  .search-result-container
-    %ol.search-results
-      - @users.each do |user|
-        .individual-result-container
-          %li.result-preview{user_id: user.id}
-            %ol.result-contents
-              %li.result-image
-                %img{src: User::LANGUAGES[user.primary_language.to_sym], class: 'language-logo'}
-              %li.result-summary
-                = user.summary
-              %li.like-button-container
-                %button.like-button Like
-            .extended-profile.grid
-              .ep-left-section.col-1-2
-                %p
-                  They love to code in
-                  = user.primary_language
-                %p
-                  In real life, they speak
-                  = user.human_language
-                %p
-                  They've been programming for
-                  = user.years_programming
-                  years
-                %p
-                  They currently work in
-                  = user.industry
-                %p
-                  They are
-                  = user.height
-                  inches tall
-              .ep-right-section.col-1-2
-                %p
-                  Their favorite animal is the
-                  = user.fav_animal
-                %p
-                  Their favorite book is
-                  = user.fav_book
-                %p
-                  They enjoy playing
-                  = user.game_genre
-                  games
-                %p
-                  They enjoy listening to
-                  = user.music_genre
-                  music
-                %p
-                  They love watching
-                  = user.movie_genre
-                  movies
-          .drawer-handle
-            %span.drawer-cta Click to expand
+.search-result-container
+  %ol.search-results
+

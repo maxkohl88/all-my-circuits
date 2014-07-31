@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730154136) do
+ActiveRecord::Schema.define(version: 20140730204002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chats", force: true do |t|
-    t.integer "u1",                      null: false
-    t.integer "u2",                      null: false
+    t.integer "u1_id",                   null: false
+    t.integer "u2_id",                   null: false
     t.boolean "u1_like", default: false
     t.boolean "u2_like", default: false
     t.boolean "blocked", default: false
