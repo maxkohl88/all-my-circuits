@@ -1,0 +1,56 @@
+#main-match-container {
+  font-size: 20px;
+  padding: 2% 1%;
+}
+
+.left-container, .right-container {
+  border: 5px solid black;
+  text-align: center;
+  padding: 10px;
+  margin: 0 1%;
+}
+
+ul.waiting-list, ul.initiated-matches-list {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+li.match-result {
+  border: 2px solid black;
+  padding: 1%;
+  -webkit-border-radius: 15px 15px 15px 15px;
+  -moz-border-radius: 15px 15px 15px 15px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+ul.match-contents {
+  list-style-type: none;
+  display: inline-flex;
+  width: 100%;
+  padding-left: 0px;
+}
+
+li.match-image {
+  width: 30%;
+  margin: auto;
+}
+
+li.match-summary {
+  width: 50%;
+  margin: auto;
+}
+
+li.unlike-button-container {
+  width: 20%;
+  margin: auto;
+}
+
+.unlike-button {
+  background-color: rgba(38, 173, 228, 0.5);
+  border: 5px solid rgba(14, 109, 172, 0.5);
+  color: white;
+  font-weight: bold;
+  -webkit-border-radius: 15px 15px 15px 15px;
+  -moz-border-radius: 15px 15px 15px 15px;
+  border-radius: 15px 15px 15px 15px;
+}
