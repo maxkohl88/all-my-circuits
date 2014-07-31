@@ -28,6 +28,8 @@ $(document).ready(function() {
     blockUpdate(event);
   });
 
+  $('#chat-display').hide();
+  $('.chat-text-box').hide();
   // get the messages for a particular chat (in order to show chat)
   $('.active-conversation-list').on('click', '.conversation-preview-contents', function(event) {
     getMsgs(event);
@@ -50,9 +52,14 @@ var getMsgs = function(event) {
   })
   .done(function(data) {
     console.log('yooooyo');
-    $('#conversation-window-container').css('width', '75%');
-    $('.conversation-preview-container').css('width', '10%');
-    $('.active-conversation-list').children('.conversation-preview').css('width', '10%');
+    $('.active-conversation-list').animate({'margin-left': '0px'}, 500);
+    $('.conversation-preview-container').animate({width: '10%'}, 500);
+    $('.conversation-preview').children('.conversation-preview-contents').children('li').hide();
+    $('.active-conversation-list').children('.conversation-preview').animate({width: '20%', 'margin-bottom': '0px'}, 500);
+    $('#chat-display').show();
+    $('.chat-text-box').show();
+    $('#conversation-window-container').animate({width: '70%'}, 500);
+    $('#chat-window').animate({width: '100%'}, 500);
     // bring out the chat body
     // append handlebar template for chat msgs
     $('.chat-text-box').attr('chat_id', data[0].chat_id);
@@ -119,7 +126,6 @@ var findOrCreateChat = function(event) {
     url: 'http://localhost:3000/sendlike',
     datatype: 'json'
   }).done(function() {
-    debugger;
     $(that).addClass('liked-button');
     $(that).text('Liked!');
   });
