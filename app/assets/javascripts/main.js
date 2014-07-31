@@ -26,18 +26,23 @@ $(document).ready(function() {
     blockUpdate(event);
   });
 
+  $('.active-conversation-list').on('click', '.conversation-preview-contents', function(event) {
+    getMsgs(event);
+  });
 });
 
 // get all messages to display in a chat
 var getMsgs = function(event) {
   event.preventDefault();
+  var chatId = $(event.target).parent().attr('data');
   debugger;
   $.ajax({
     type: 'get',
     datatype: 'json',
-    url: 'http://localhost:3000/chats/'
+    url: 'http://localhost:3000/chats/' + chatId + '/messages'
   })
   .done(function() {
+    debugger;
     console.log('yooooyo');
   });
 };
