@@ -49,6 +49,7 @@ var unlikeUpdate = function(event) {
   var chatId = $(event.target).attr('data');
   $.ajax({
     type: 'delete',
+    datatype: 'json',
     url: 'http://localhost:3000/chats/' + chatId,
   })
   .done(function() {
