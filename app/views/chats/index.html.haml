@@ -1,7 +1,8 @@
-#conversation-page-container
+#conversation-page-container.grid
   = render 'layouts/nav'
 
-  %section.main_content.grid
+  .chat_main_content.col-4-5.grid
+    .conversation-page-header Active Conversations
     .conversation-preview-container.col-3-4
       %ul.active-conversation-list
         -@chats.each do |chat|
@@ -13,8 +14,10 @@
                 Chat with
                 = chat.other_user(current_user).name
 
-    #conversation-window-container.col-1-20
+    #conversation-window-container.col-1-4
       #chat-window
+        #close-chat-container
+          #close-chat-button Close 
         #chat-display
           %ul.chat-content
         %ul.chat-text-box
