@@ -10,10 +10,10 @@ class ChatsController < ApplicationController
   def index
     @chats = current_user.chats1
     @chats += current_user.chats2
-    @chats.select do |chat|
-      ((chat.u1_like) &&
-       (chat.u2_like) &&
-       (!chat.blocked))
+    @chats = @chats.select do |chat|
+      ((chat.u1_like == true) &&
+       (chat.u2_like == true) &&
+       (chat.blocked == false))
     end
   end
 

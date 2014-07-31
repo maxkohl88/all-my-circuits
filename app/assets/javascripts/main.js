@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+  // search for users by attributes
   $('#search-form').submit(function(event) {
     runSearch(event);
   });
@@ -22,8 +23,14 @@ $(document).ready(function() {
     unlikeUpdate(event);
   });
 
+  // block user from matches manager
   $('.active-matches-container').on('click', '.block-button', function(event) {
     blockUpdate(event);
+  });
+
+  // get the messages for a particular chat (in order to show chat)
+  $('.active-conversation-list').on('click', '.conversation-preview-contents', function(event) {
+    getMsgs(event);
   });
 
 });
@@ -31,17 +38,43 @@ $(document).ready(function() {
 // get all messages to display in a chat
 var getMsgs = function(event) {
   event.preventDefault();
-  debugger;
+  var chatId = $(event.target).parent().attr('data');
   $.ajax({
     type: 'get',
     datatype: 'json',
-    url: 'http://localhost:3000/chats/'
+    url: 'http://localhost:3000/chats/' + chatId + '/messages'
   })
-  .done(function() {
+  .done(function(data) {
     console.log('yooooyo');
+    $('#conversation-window-container').css('width', '75%');
+    $('.conversation-preview-container').css('width', '10%');
+    $('.active-conversation-list').children('.conversation-preview').css('width', '10%');
+    // bring out the chat body
+    // append handlebar template for chat msgs
+    debugger;
+
   });
 };
 
+// send a message to a chat
+var sendMsg = function(event) {
+  event.preventDefault();
+  debugger;
+  var chatId = 'some path to the chatID';
+  var sender_id = 'some path to current user';
+  var content = 'some path to the msg';
+  $.ajax({
+    type: 'post',
+    datatype: 'json',
+    url: 'http://localhost:3000/chats/' + chatId + '/messages',
+    data: {message: {content: content, user_id: sender_id }}
+  })
+  .done(function() {
+    debugger;
+    console.log('in callback');
+    // append msg to chat body
+  });
+};
 
 // update the chat, blocked = true
 // maybe add an 'Are you sure?' (no un-blocking)

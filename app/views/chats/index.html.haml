@@ -1,13 +1,17 @@
 #conversation-page-container
   = render 'layouts/nav'
-  
+
   %section.main_content.grid
     .conversation-preview-container.col-3-4
       %ul.active-conversation-list
-        %li.conversation-preview
-          %ul.conversation-preview-contents
-            %li.picture-preview
-            %li.username-preview
+        -@chats.each do |chat|
+          %li.conversation-preview
+            %ul.conversation-preview-contents{data: chat_id = chat.id}
+              %li.picture-preview
+                = image_tag(chat.other_user(current_user).profile_picture_url)
+              %li.username-preview
+                Chat with
+                = chat.other_user(current_user).name
 
     #conversation-window-container.col-1-20
       #chat-window
