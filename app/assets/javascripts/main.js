@@ -33,6 +33,10 @@ $(document).ready(function() {
     getMsgs(event);
   });
 
+  $('#chat-submit').submit(function(event) {
+    sendMsg(event);
+  });
+
 });
 
 // get all messages to display in a chat
@@ -51,29 +55,25 @@ var getMsgs = function(event) {
     $('.active-conversation-list').children('.conversation-preview').css('width', '10%');
     // bring out the chat body
     // append handlebar template for chat msgs
-    debugger;
+    $('.chat-text-box').attr('chat_id', data[0].chat_id);
     $('.chat-content').append(HandlebarsTemplates.buildChat(data));
-
   });
 };
 
 // send a message to a chat
 var sendMsg = function(event) {
   event.preventDefault();
-  debugger;
-  var chatId = 'some path to the chatID';
-  var sender_id = 'some path to current user';
-  var content = 'some path to the msg';
+  var chatId = $(event.target).parent().parent().attr('chat_id');
+  var content = $(event.target).children('.new-message-field').val();
   $.ajax({
     type: 'post',
     datatype: 'json',
     url: 'http://localhost:3000/chats/' + chatId + '/messages',
-    data: {message: {content: content, user_id: sender_id }}
+    data: {message: {content: content, chat_id: chatId}}
   })
-  .done(function() {
-    debugger;
-    console.log('in callback');
+  .done(function(data) {
     // append msg to chat body
+    $('.chat-content').append(HandlebarsTemplates.buildChat([data]));
   });
 };
 

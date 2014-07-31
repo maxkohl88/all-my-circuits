@@ -11,12 +11,19 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @msg = current_user.messages.new(messages_params)
+    if current_user.save
+      render json: @msg
+      return
+    else
+      raise "Something went wrong sending the message"
+    end
   end
 
   private
 
   def messages_params
-    params.require(:message).permit(:content, :user, :chat)
+    params.require(:message).permit(:content, :user_id, :chat_id)
   end
 
 end
