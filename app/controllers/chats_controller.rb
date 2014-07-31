@@ -13,6 +13,7 @@ class ChatsController < ApplicationController
   def find_or_create
     @chat =  Chat.where(u1: chats_params[:u2], u2: current_user.id)[0]
     @chat2 = Chat.where(u2: chats_params[:u2], u1: current_user.id)[0]
+    theChat = @chat
     if @chat
       if !@chat.u2_like
         @chat.update(u2_like: true)
@@ -20,12 +21,13 @@ class ChatsController < ApplicationController
         puts 'chat exists already, cant like twice'
       end
     elsif @chat2
+      theChat = @chat2
       puts 'Chat exists already, user cant like twice'
     else
-      chat = Chat.create(u1_id: current_user.id, u2_id: chats_params[:u2], u1_like: true)
+      theChat = Chat.create(u1_id: current_user.id, u2_id: chats_params[:u2], u1_like: true)
     end
     # responding with something serialized so it doesn't look for a template
-    respond_with current_user
+    respond_with theChat
   end
 
   def matches
@@ -49,14 +51,14 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
     @chat.delete
     # responding with something serialized so it doesn't look for a template
-    respond_with current_user
+    respond_with @chat
   end
 
   def update
     @chat = Chat.find(params[:id])
     @chat.update(chats_params)
     # responding with something serialized so it doesn't look for a template
-    respond_with current_user
+    respond_with @chat
   end
 
 
