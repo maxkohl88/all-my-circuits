@@ -21,9 +21,12 @@ class ChatsController < ApplicationController
 
   def matches
     @waiting_matches = current_user.chats1.where(u2_like: false)
-    @matches = current_user.chats1
-    @matches += current_user.chats2
-    @active_matches = @matches.select do |chat|
+    @initiated_matches = current_user.chats1.select do |chat|
+      ((chat.u2_like == true) &&
+      (chat.u1_like == true) &&
+      (chat.blocked == false))
+    end
+    @joined_matches = current_user.chats2.select do |chat|
       ((chat.u2_like == true) &&
       (chat.u1_like == true) &&
       (chat.blocked == false))

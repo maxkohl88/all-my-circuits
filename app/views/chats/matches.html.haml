@@ -13,9 +13,38 @@
       .waiting-for-like-container
         %ul.waiting-list
           -# user.each where they've started a convo but the match hasn't accepted
-          -binding.pry
+          - @waiting_matches.each do |match|
+            .waiting-container
+              %li.match-result
+                %ul.match-contents
+                  %li.match-image
+                    %img{src: User::LANGUAGES[match.u2.primary_language.to_sym], class: 'language-logo'}
+                  %li.match-summary
+                    = match.u2.summary
+                  %li.unlike-button-container
+                    %button.unlike-button Unlike
     .right-container.col-1-2
       %span Active matches
       .active-matches-container
-        %ul.active-matches-list
-          -# user.each where the conversation is active
+        %ul.initiated-matches-list
+          - @initiated_matches.each do |match|
+            .initiated-container
+              %li.match-result
+                %ul.match-contents
+                  %li.match-image
+                    %img{src: match.u2.profile_picture_url, class: 'language-logo'}
+                  %li.match-summary
+                    = match.u2.summary
+                  %li.block-button-container
+                    %button.block-button Block
+        %ul.joined-matches-list
+          - @joined_matches.each do |match|
+            .joined-container
+              %li.match-result
+                %ul.match-contents
+                  %li.match-image
+                    %img{src: match.u1.profile_picture_url, class: 'language-logo'}
+                  %li.match-summary
+                    = match.u1.summary
+                  %li.block-button-container
+                    %button.block-button Block
