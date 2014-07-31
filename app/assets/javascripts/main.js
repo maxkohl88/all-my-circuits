@@ -118,14 +118,12 @@ var findOrCreateChat = function(event) {
     data: {chat: {u2: being_liked}},
     url: 'http://localhost:3000/sendlike',
     datatype: 'json'
-  }).done(findOrCreateCallback(that));
+  }).done(function() {
+    debugger;
+    $(that).addClass('liked-button');
+    $(that).text('Liked!');
+  });
 
-};
-
-var findOrCreateCallback = function(that) {
-  // change color of 'like' button
-  $(that).addClass('liked-button');
-  $(that).text('Liked!');
 };
 
 var runSearch = function(event) {
