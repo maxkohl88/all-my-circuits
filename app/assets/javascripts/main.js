@@ -30,6 +30,7 @@ $(document).ready(function() {
 
   $('#chat-display').hide();
   $('.chat-text-box').hide();
+  $('#close-chat-button').hide();
   // get the messages for a particular chat (in order to show chat)
   $('.active-conversation-list').on('click', '.conversation-preview-contents', function(event) {
     getMsgs(event);
@@ -37,6 +38,18 @@ $(document).ready(function() {
 
   $('#chat-submit').submit(function(event) {
     sendMsg(event);
+  });
+
+  $('#close-chat-button').click(function(){
+    $('.conversation-preview-container').animate({width: '75%'}, 500);
+    $('.conversation-preview').children('.conversation-preview-contents').children('li').show();
+    $('.active-conversation-list').children('.conversation-preview').animate({width: '100%', 'margin-bottom': '30px'}, 500);
+    $('#chat-display').hide();
+    $('.chat-text-box').hide();
+    $('#conversation-window-container').animate({width: '25%'}, 500);
+    $('#chat-window').animate({width: '12%'}, 500);
+    $(this).hide();
+    $('.active-conversation-list').animate({'margin-left': '150px'}, 500);
   });
 
 });
@@ -52,14 +65,18 @@ var getMsgs = function(event) {
   })
   .done(function(data) {
     console.log('yooooyo');
+    // chat window animations
     $('.active-conversation-list').animate({'margin-left': '0px'}, 500);
     $('.conversation-preview-container').animate({width: '10%'}, 500);
     $('.conversation-preview').children('.conversation-preview-contents').children('li').hide();
     $('.active-conversation-list').children('.conversation-preview').animate({width: '20%', 'margin-bottom': '0px'}, 500);
     $('#chat-display').show();
     $('.chat-text-box').show();
-    $('#conversation-window-container').animate({width: '70%'}, 500);
+    $('#conversation-window-container').animate({width: '80%'}, 500);
     $('#chat-window').animate({width: '100%'}, 500);
+    $('.conversation-page-header').text();
+    $('#close-chat-button').show();
+
     // bring out the chat body
     // append handlebar template for chat msgs
     $('.chat-text-box').attr('chat_id', data[0].chat_id);

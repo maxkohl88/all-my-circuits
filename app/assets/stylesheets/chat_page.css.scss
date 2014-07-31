@@ -49,7 +49,23 @@ ul.conversation-preview-contents {
 
 #chat-display {
   width: 100%;
-  height: 90%;
+  height: 83%;
+}
+
+#close-chat-container {
+  height: 4%;
+  width: 100%;
+}
+
+#close-chat-button {
+  float: right;
+  // margin-right: 3px;
+  // margin-top: 3px;
+  padding: 4px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  border-left: 4px solid black;
+  border-bottom: 4px solid black;
 }
 
 ul.chat-text-box {
@@ -58,6 +74,8 @@ ul.chat-text-box {
   border-top: 5px solid black;
   width: 100%;
   padding-left: 0px;
+  height: 13%;
+  position: relative;
 }
 
 li.icon-container {
@@ -79,3 +97,4 @@ li.new-message-container {
   width: 500px;
   border: none;
 }
+
