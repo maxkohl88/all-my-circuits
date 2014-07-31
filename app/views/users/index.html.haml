@@ -1,77 +1,87 @@
-%h1 User Index (results of search)
+= render 'layouts/nav'
 
-%p have a copy of search bar to re-search
+#main-search-container.col-4-5
 
-= form_tag '/users', id: 'search-form', method: 'get' do
-  = label_tag :zip
-  = text_field_tag :zip, ''
-  = label_tag :human_language, 'Language'
-  = text_field_tag :human_language, ''
-  = label_tag :game_genre
-  = select_tag 'game_genre', options_for_select(%w(Shooter Strategy Puzzle Racing RPG Sports Survival-Horror Indie)), include_blank: true
-  = label_tag :music_genre
-  = select_tag 'music_genre', options_for_select(%w(Rock Rap Jazz Blues Classical Electronic Country World)), include_blank: true
-  = label_tag :movie_genre
-  = select_tag 'movie_genre', options_for_select(%w(Horror Comedy Action Rom-Com Sci-Fi Kung-Fu Drama Documentary)), include_blank: true
-  = label_tag :min_height
-  = select_tag 'min_height', options_for_select(48..96), include_blank: true
-  = label_tag :max_height
-  = select_tag 'max_height', options_for_select(48..96), include_blank: true
-  = label_tag :min_age
-  = select_tag 'min_age', options_for_select(18..75), include_blank: true
-  = label_tag :max_age
-  = select_tag 'max_age', options_for_select(18..75), include_blank: true
-  = submit_tag 'Search'
+  #search-for-matches-header Search For Matches
 
-.search-result-container
-  %ol.search-results
-    - @users.each do |user|
-      .individual-result-container
-        %li.result-preview{user_id: user.id}
-          %ol.result-contents
-            %li.result-image
-              %img{src: User::LANGUAGES[user.primary_language.to_sym], class: 'language-logo'}
-            %li.result-summary
-              = user.summary
-            %li.like-button-container
-              %button.like-button Like
-          .extended-profile.grid
-            .ep-left-section.col-1-2
-              %p
-                They love to code in
-                = user.primary_language
-              %p
-                In real life, they speak
-                = user.human_language
-              %p
-                They've been programming for
-                = user.years_programming
-                years
-              %p
-                They currently work in
-                = user.industry
-              %p
-                They are
-                = user.height
-                inches tall
-            .ep-right-section.col-1-2
-              %p
-                Their favorite animal is the
-                = user.fav_animal
-              %p
-                Their favorite book is
-                = user.fav_book
-              %p
-                They enjoy playing
-                = user.game_genre
-                games
-              %p
-                They enjoy listening to
-                = user.music_genre
-                music
-              %p
-                They love watching
-                = user.movie_genre
-                movies
-        .drawer-handle
-          %span.drawer-cta Click to expand
+  #search-form-container
+    = form_tag '/users', id: 'search-form', method: 'get' do
+      .search-options.grid
+        .search-form-top.grid
+          .search-form-top-left.col-2-5  
+            = label_tag :zip
+            = text_field_tag :zip, '', class: 'search-input-box'
+            = label_tag :human_language, 'Language'
+            = text_field_tag :human_language, '', class: 'search-input-box'
+          .search-form-top-right.col-3-5
+            = label_tag :game_genre
+            = select_tag 'game_genre', options_for_select(%w(Shooter Strategy Puzzle Racing RPG Sports Survival-Horror Indie)), include_blank: true, class: 'search-input-box'
+            = label_tag :music_genre
+            = select_tag 'music_genre', options_for_select(%w(Rock Rap Jazz Blues Classical Electronic Country World)), include_blank: true, class: 'search-input-box' 
+            = label_tag :movie_genre
+            = select_tag 'movie_genre', options_for_select(%w(Horror Comedy Action Rom-Com Sci-Fi Kung-Fu Drama Documentary)), include_blank: true, class: 'search-input-box'
+        .search-form-bottom.grid
+          = label_tag :min_height
+          = select_tag 'min_height', options_for_select(48..96), include_blank: true, class: 'search-input-box'
+          = label_tag :max_height
+          = select_tag 'max_height', options_for_select(48..96), include_blank: true, class: 'search-input-box'
+          = label_tag :min_age
+          = select_tag 'min_age', options_for_select(18..75), include_blank: true, class: 'search-input-box'
+          = label_tag :max_age
+          = select_tag 'max_age', options_for_select(18..75), include_blank: true, class: 'search-input-box'
+
+      .search-submit
+        = submit_tag 'Search', class: 'search-input-box'
+
+  .search-result-container
+    %ol.search-results
+      - @users.each do |user|
+        .individual-result-container
+          %li.result-preview{user_id: user.id}
+            %ol.result-contents
+              %li.result-image
+                %img{src: User::LANGUAGES[user.primary_language.to_sym], class: 'language-logo'}
+              %li.result-summary
+                = user.summary
+              %li.like-button-container
+                %button.like-button Like
+            .extended-profile.grid
+              .ep-left-section.col-1-2
+                %p
+                  They love to code in
+                  = user.primary_language
+                %p
+                  In real life, they speak
+                  = user.human_language
+                %p
+                  They've been programming for
+                  = user.years_programming
+                  years
+                %p
+                  They currently work in
+                  = user.industry
+                %p
+                  They are
+                  = user.height
+                  inches tall
+              .ep-right-section.col-1-2
+                %p
+                  Their favorite animal is the
+                  = user.fav_animal
+                %p
+                  Their favorite book is
+                  = user.fav_book
+                %p
+                  They enjoy playing
+                  = user.game_genre
+                  games
+                %p
+                  They enjoy listening to
+                  = user.music_genre
+                  music
+                %p
+                  They love watching
+                  = user.movie_genre
+                  movies
+          .drawer-handle
+            %span.drawer-cta Click to expand

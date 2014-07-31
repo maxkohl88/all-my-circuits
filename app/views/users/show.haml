@@ -1,12 +1,5 @@
 #profile_container.page_wrap
-  %nav.main_nav
-    %ul.nav_links
-      %li 
-        = link_to 'My Profile', user_path(@user)
-      %li
-        = link_to 'Search', users_path
-      %li Matches
-      %li Conversations
+  = render 'layouts/nav'
   %section.main_content
     %h2
       = @user.uid
