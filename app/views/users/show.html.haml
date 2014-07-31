@@ -1,6 +1,6 @@
 #profile_container.page_wrap
   = render 'layouts/nav'
-  %section.main_content
+  %section.main_content.col-4-5
     %h2
       = @user.uid
       's profile
@@ -12,7 +12,7 @@
         #summary
           %h4 Summary
           = @user.summary
-    %mid-container.grid
+    .mid-container.grid
       .left-container.col-1-2
         %h4 My programming stuff
         #dev_attr.descriptor_box
@@ -24,7 +24,7 @@
               \#{@user.years_programming == 1 ? 'year' : 'years'}.
               %br
                 I also speak #{@user.human_language}.
-      %right-container.col-1-2
+      .right-container.col-1-2
         %h4 Vitals
         #vital_info.descriptor_box
           Location: #{@user.zip}
@@ -47,5 +47,3 @@
               %br
                 Favorite movie genre: #{@user.movie_genre}
                 %br
-  %section.match_preview
-    %span You've liked these folks
