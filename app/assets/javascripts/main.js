@@ -28,6 +28,21 @@ $(document).ready(function() {
 
 });
 
+// get all messages to display in a chat
+var getMsgs = function(event) {
+  event.preventDefault();
+  debugger;
+  $.ajax({
+    type: 'get',
+    datatype: 'json',
+    url: 'http://localhost:3000/chats/'
+  })
+  .done(function() {
+    console.log('yooooyo');
+  });
+};
+
+
 // update the chat, blocked = true
 // maybe add an 'Are you sure?' (no un-blocking)
 var blockUpdate = function(event) {
