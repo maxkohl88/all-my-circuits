@@ -66,10 +66,11 @@ li.result-preview {
   margin-bottom: -2px;
   background-color: white;
   padding: 32px;
-  border: 2px solid rgba(38, 173, 228, 0.5);
+  border: 2px solid black;
   -webkit-border-radius: 15px 15px 15px 15px;
   -moz-border-radius: 15px 15px 15px 15px;
   border-radius: 15px 15px 15px 15px;
+  font-family: 'Josefin-Sans', sans-serif;
 }
 
 .drawer-handle {
@@ -78,7 +79,7 @@ li.result-preview {
   margin: 0 auto;
   margin-bottom: 50px;
   background-color: white;
-  border: 2px solid rgba(38, 173, 228, 0.5);
+  border: 2px solid black;
   -webkit-border-radius: 0px 0px 175px 175px;
   -moz-border-radius: 0px 0px 175px 175px;
   border-radius: 0px 0px 175px 175px;
@@ -163,12 +164,3 @@ img.language-logo {
   -moz-border-radius: 3px 3px 3px 3px;
   border-radius: 3px 3px 3px 3px;
 }
-
-// .drawer-handle:before {
-//     content: '';
-//     position: absolute;
-//     top: 0; right: 0;
-//     border-bottom: 30px solid white;
-//     border-right: 30px solid white;
-//     width: 0;
-// }
