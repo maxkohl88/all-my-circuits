@@ -74,7 +74,8 @@ var findOrCreateChat = function(event) {
 
 var findOrCreateCallback = function(that) {
   // change color of 'like' button
-  $(that).css('background-color', 'red');
+  $(that).addClass('liked-button');
+  $(that).text('Liked!');
 };
 
 var runSearch = function(event) {

@@ -19,7 +19,7 @@ li.result-preview {
 .drawer-handle {
   height: 30px;
   width: 750px;
-  margin: 0 auto; 
+  margin: 0 auto;
   margin-bottom: 50px;
   background-color: white;
   border: 5px solid rgba(14, 109, 172, 0.5);
@@ -75,6 +75,19 @@ img.language-logo {
   color: rgba(14, 109, 172, 0.5);
   font-weight: bold;
     -webkit-border-radius: 15px 15px 15px 15px;
+  -moz-border-radius: 15px 15px 15px 15px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.liked-button {
+  width: 87px;
+  height: 31px;
+  margin-top: 37%;
+  background-color: rgba(38, 173, 228, 0.5);
+  border: 5px solid rgba(14, 109, 172, 0.5);
+  color: white;
+  font-weight: bold;
+  -webkit-border-radius: 15px 15px 15px 15px;
   -moz-border-radius: 15px 15px 15px 15px;
   border-radius: 15px 15px 15px 15px;
 }

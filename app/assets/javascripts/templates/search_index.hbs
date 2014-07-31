@@ -10,7 +10,11 @@
         <p>{{summary}}</p>
       </li>
       <li class='like-button-container'>
-        <button class="like-button">Like</button>
+        {{#if been_liked}}
+          <button class="liked-button">Liked!</button>
+        {{else}}
+          <button class="like-button">Like</button>
+        {{/if}}
       </li>
     </ol>
     <div class="extended-profile grid">
