@@ -4,13 +4,17 @@
     <span class='username-preview'>{{name}}</span>
     <ol class='result-contents'>
       <li class='result-image'>
-        <img src="User::LANGUAGES[{{primary_language}}.to_sym]" width="100" height="100", class ='language_logo'>
+        <img src="{{default_pic}}" width="100" height="100" class='language_logo'>
       </li>
       <li class="result-summary">
         <p>{{summary}}</p>
       </li>
       <li class='like-button-container'>
-        <button class="like-button">Like</button>
+        {{#if been_liked}}
+          <button class="liked-button">Liked!</button>
+        {{else}}
+          <button class="like-button">Like</button>
+        {{/if}}
       </li>
     </ol>
     <div class="extended-profile grid">
@@ -33,5 +37,5 @@
   <div class='drawer-handle'>
     <span class='drawer-cta'>Click to expand</span>
   </div>
-</div> 
+</div>
 {{/each}}

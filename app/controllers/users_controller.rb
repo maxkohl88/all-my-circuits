@@ -42,7 +42,6 @@ class UsersController < ApplicationController
     respond_with @users
   end
 
-
   def new
     #empty new route for github authentication
   end
@@ -56,6 +55,7 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
 
   private
 

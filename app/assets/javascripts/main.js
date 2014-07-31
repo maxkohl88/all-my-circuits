@@ -4,33 +4,78 @@ $(document).ready(function() {
     runSearch(event);
   });
 
-
+  // hide sliding drawers
   $('.extended-profile').hide();
+
+  // buttons for sliding drawers
   $('.search-results').on('click', '.drawer-cta', function() {
     $(this).parent().parent().children('.result-preview').children('.extended-profile').slideToggle(700);
   });
+
+  // buttons for likes
   $('.search-results').on('click', '.like-button', function(event) {
     findOrCreateChat(event);
   });
+
+  // buttons for unlikes
+  $('.waiting-for-like-container').on('click', '.unlike-button', function(event) {
+    unlikeUpdate(event);
+  });
+
+  $('.active-matches-container').on('click', '.block-button', function(event) {
+    blockUpdate(event);
+  });
+
 });
 
+// update the chat, blocked = true
+// maybe add an 'Are you sure?' (no un-blocking)
+var blockUpdate = function(event) {
+  event.preventDefault();
+  var chatId = $(event.target).attr('data');
+  $.ajax({
+    type: 'patch',
+    datatype: 'json',
+    data: {chat: {blocked: true}},
+    url: 'http://localhost:3000/chats/' + chatId
+  })
+  .done(function() {
+    $(event.target).closest('.match-result').remove();
+  });
+};
+// user will be u1 if they are unliking
+var unlikeUpdate = function(event) {
+  event.preventDefault();
+  var chatId = $(event.target).attr('data');
+  $.ajax({
+    type: 'delete',
+    url: 'http://localhost:3000/chats/' + chatId,
+  })
+  .done(function() {
+    $(event.target).closest('.match-result').remove();
+  });
+};
+
+// on clicking 'like', successfully does find_or_create
+// BUT registers an internal server error
 var findOrCreateChat = function(event) {
   event.preventDefault();
-  debugger;
-  var being_liked = $(event.target).closest('.result-preview').attr('user_id');
+  var that = $(event.target);
+  var being_liked = that.closest('.result-preview').attr('user_id');
 
   $.ajax({
     type: 'post',
     data: {chat: {u2: being_liked}},
     url: 'http://localhost:3000/sendlike',
     datatype: 'json'
-  }).done(findOrCreateCallback());
+  }).done(findOrCreateCallback(that));
 
 };
 
-var findOrCreateCallback = function() {
-  console.log('in callback');
-  debugger;
+var findOrCreateCallback = function(that) {
+  // change color of 'like' button
+  $(that).addClass('liked-button');
+  $(that).text('Liked!');
 };
 
 var runSearch = function(event) {
