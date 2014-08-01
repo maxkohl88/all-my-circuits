@@ -2,7 +2,7 @@ class Chat < ActiveRecord::Base
   # has_many :messages
   belongs_to :u1, class_name: 'User'
   belongs_to :u2, class_name: 'User'
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   def other_user(current_user)
     if current_user.id == self.u1_id
