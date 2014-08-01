@@ -2,16 +2,60 @@ body {
   padding: none;
 }
 
-#top-half {
-  text-align: center;
-  height: 400px;
+#landing-page-container {
+  background-color: black;
+  height: 50em;
   position: relative;
-  background-color: rgba(231, 76, 60,1.0);
 }
 
-#sign-up-button {
-  vertical-align: bottom;
+#circuits-header {
   position: absolute;
-  bottom: 0;
-  margin-left: -75px;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 60px;
+  left: 39%;
+  top: 3%;
+  display: none;
+}
+
+#circuits-description-left {
+  position: absolute;
+  color: white;
+  top: 24%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 40px;
+  display: none;
+  padding-right: 1px;
+}
+
+
+#circuits-description-right {
+  position: absolute;
+  color: white;
+  top: 24%;
+  right: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 40px;
+  display: none;
+  padding-right: 1px;
+}
+
+#sign-up-button-container {
+  position: absolute;
+  top: 100%;
+  left: 39%;
+  display: none;
+}
+
+.sign-up-button {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 40px;
+  border: 3px solid white;
+  padding: 25px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
 }
