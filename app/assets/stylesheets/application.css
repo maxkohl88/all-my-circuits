@@ -55,8 +55,8 @@ span.app-name {
 .main_content {
   padding-bottom: 1000px;
   margin-bottom: -1000px;
-  margin-left: 35px;
   color: black;
+  padding: 20px;
   font-family: 'Josefin Sans', sans-serif;
 }
 

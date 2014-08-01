@@ -5,16 +5,16 @@
       = @user.uid
       's profile
     .top-container.grid
-      .left-container.col-1-3
+      .profile-left-container.col-1-3
         #avatar
           %img{src: @user.profile_picture_url, class: 'profile-picture'}
-      .right-container.col-2-3
+      .profile-right-container.col-2-3
         #summary
-          %h4 Summary
+          .profile-page-header Summary
           = @user.summary
     .mid-container.grid
-      .left-container.col-1-2
-        %h4 My programming stuff
+      .profile-attribute-container.col-1-3
+        .profile-page-header My programming stuff
         #dev_attr.descriptor_box
           Favorite language: #{@user.primary_language}
           %br
@@ -24,8 +24,8 @@
               \#{@user.years_programming == 1 ? 'year' : 'years'}.
               %br
                 I also speak #{@user.human_language}.
-      .right-container.col-1-2
-        %h4 Vitals
+      .profile-attribute-container.col-1-3
+        .profile-page-header Vitals
         #vital_info.descriptor_box
           Location: #{@user.zip}
           %br
@@ -34,16 +34,16 @@
               Interested in: #{@user.interested_in}
               %br
                 Height: #{@user.height/12}'#{@user.height%12}
-    %bottom-container.grid
-      %h4 These are a few of my favorite things
-      #fave_stuff1.descriptor_box
-        Favorite animal: #{@user.fav_animal}
-        %br
-          Favorite book: #{@user.fav_book}
+      .profile-attribute-container.col-1-3
+        .profile-page-header These are a few of my favorite things
+        #fave_stuff1.descriptor_box
+          Favorite animal: #{@user.fav_animal}
           %br
-            Favorite type of game: #{@user.game_genre}
+            Favorite book: #{@user.fav_book}
             %br
-              Favorite music genre: #{@user.music_genre}
+              Favorite type of game: #{@user.game_genre}
               %br
-                Favorite movie genre: #{@user.movie_genre}
+                Favorite music genre: #{@user.music_genre}
                 %br
+                  Favorite movie genre: #{@user.movie_genre}
+                  %br
