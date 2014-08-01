@@ -47,7 +47,7 @@ input[type="radio"] + label {
     display:inline-block;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-    width:60px;
+    width:70px;
     height:30px;
     padding: 10px;
     border: 2px solid rgba(38, 173, 228, 0.5);
@@ -62,7 +62,7 @@ input[type="radio"]:checked + label {
     display:inline-block;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-    width:60px;
+    width:70px;
     height:30px;
     padding: 10px;
     border: 2px solid black;
@@ -91,4 +91,13 @@ input[type="radio"]:checked + label {
   -moz-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   float: right;
+}
+
+select#user_primary_language {
+  height: 35px;
+  background-color: white;
+  border: 2px solid rgba(38, 173, 228, 0.5);
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
 }
