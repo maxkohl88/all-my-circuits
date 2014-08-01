@@ -12,7 +12,7 @@
             = label_tag :zip
             = text_field_tag :zip, '', class: 'search-input-box'
             = label_tag :human_language, 'Language'
-            = text_field_tag :human_language, '', class: 'search-input-box'
+            = select_tag :human_language, options_for_select(%w(Ruby C Javascript Java Perl Python)), include_blank: true, class: 'search-input-box'
           .search-form-top-right.col-3-5
             = label_tag :game_genre
             = select_tag 'game_genre', options_for_select(%w(Shooter Strategy Puzzle Racing RPG Sports Survival-Horror Indie)), include_blank: true, class: 'search-input-box'

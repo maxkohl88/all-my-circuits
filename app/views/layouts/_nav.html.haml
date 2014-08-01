@@ -1,4 +1,5 @@
 %nav.main_nav.col-1-5
+  %img.nav-profile-pic{src: current_user.profile_picture_url}
   %ul.nav_links
     %li.nav-link-wrappers
       = link_to 'My Profile', user_path(current_user), class: 'nav_link'
