@@ -1,15 +1,28 @@
-= render 'shared/error'
-%h1 These are some things that people can find you by!
-= form_for(@user, url: wizard_path, method: :put) do |f|
-  = f.label :fav_animal, 'Cats or dogs?'
-  = f.select :fav_animal, %w(Cats Dogs)
-  = f.text_field :fav_book, placeholder: 'favorite book'
-  = f.label :game_genre, 'Favorite game genre*'
-  = f.select :game_genre, %w(Shooter Strategy Puzzle Racing RPG Sports Survival-Horror Indie)
-  = f.label :music_genre, 'Favorite music genre*'
-  = f.select :music_genre, %w(Rock Rap Jazz Blues Classical Electronic Country World)
-  = f.label :movie_genre, 'Favorite movie genre*'
-  = f.select :movie_genre, %w(Horror Comedy Action Rom-Com Sci-Fi Kung-Fu Drama Documentary)
-  = f.submit 'Next'
+%h1.wizard-header We all like stuff. And things. What stuff and things do you like?
 
-= render 'wizard_notes'
+.basic-wizard-container.grid.favorites
+  = form_for(@user, url: wizard_path, method: :put) do |f|
+
+    .wizard-form-top.grid
+      .wizard-top-left.col-1-2
+        = f.label :fav_animal, 'Cats or dogs?'
+        = f.select :fav_animal, %w(Cats Dogs)
+      .wizard-top-right.col-1-2
+        = f.label :fav_book, 'Favorite Book'
+        = f.text_field :fav_book, placeholder: '', class: 'wizard-form-field'
+        
+
+    .wizard-form-mid.grid 
+      = f.label :game_genre, 'Favorite game genre*'  
+      = f.select :game_genre, %w(Shooter Strategy Puzzle Racing RPG Sports Survival-Horror Indie)
+      = f.label :music_genre, 'Favorite music genre*'
+      = f.select :music_genre, %w(Rock Rap Jazz Blues Classical Electronic Country World)
+      = f.label :movie_genre, 'Favorite movie genre*'
+      = f.select :movie_genre, %w(Horror Comedy Action Rom-Com Sci-Fi Kung-Fu Drama Documentary)
+
+    = f.submit 'End', class: 'wizard-button'
+
+.wizard-notifications
+  = render 'shared/error'
+
+  = render 'wizard_notes'

@@ -34,8 +34,21 @@ select[id^='user_bday_'] {
   border-radius: 10px 10px 10px 10px;
 }
 
+select[id*='genre'], [id*='animal'] {
+  height: 35px;
+  background-color: white;
+  border: 2px solid black;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+}
+
 div[class^='wizard-form-'] {
   margin-top: 15px;
+  text-align: center;
+}
+
+div[class^='wizard-top-'] {
   text-align: center;
 }
 
@@ -90,7 +103,8 @@ input[type="radio"]:checked + label {
   -webkit-border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  float: right;
+  margin-left: 50%;
+  margin-top: 3%;
 }
 
 select#user_primary_language {
@@ -100,4 +114,9 @@ select#user_primary_language {
   -webkit-border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
+}
+
+.basic-wizard-container.favorites {
+  margin-top: 3%;
+  width: 55%; 
 }

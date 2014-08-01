@@ -1,6 +1,22 @@
 #main-match-container {
   font-size: 20px;
   padding: 2% 1%;
+  background-color: rgba(160, 228, 255, 0.56);
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
+}
+
+#match-header {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  width: 23%;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  padding: 10px;
+  background-color: white;
+  border: 3px solid black;
 }
 
 .left-container, .right-container {
@@ -8,6 +24,8 @@
   text-align: center;
   padding: 10px;
   margin: 0 1%;
+  background-color: white;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 ul.waiting-list, ul.initiated-matches-list {
@@ -16,11 +34,17 @@ ul.waiting-list, ul.initiated-matches-list {
 }
 
 li.match-result {
+  font-family: 'Josefin Sans', sans-serif;
   border: 2px solid black;
   padding: 1%;
+  margin-bottom: 15px;
   -webkit-border-radius: 15px 15px 15px 15px;
   -moz-border-radius: 15px 15px 15px 15px;
   border-radius: 15px 15px 15px 15px;
+}
+
+.username-preview {
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 ul.match-contents {
@@ -28,6 +52,8 @@ ul.match-contents {
   display: inline-flex;
   width: 100%;
   padding-left: 0px;
+  height: 86px;
+  padding: 27px;
 }
 
 li.match-image {
@@ -48,6 +74,16 @@ li.unlike-button-container {
 .unlike-button {
   background-color: rgba(38, 173, 228, 0.5);
   border: 5px solid rgba(14, 109, 172, 0.5);
+  color: white;
+  font-weight: bold;
+  -webkit-border-radius: 15px 15px 15px 15px;
+  -moz-border-radius: 15px 15px 15px 15px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.block-button {
+  background-color: black;
+  border: 5px solid rgba(38, 173, 228, 0.9);
   color: white;
   font-weight: bold;
   -webkit-border-radius: 15px 15px 15px 15px;

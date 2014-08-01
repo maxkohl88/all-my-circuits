@@ -51,7 +51,7 @@ $(document).ready(function() {
 
   $('#chat-display').hide();
   $('.chat-text-box').hide();
-  $('#close-chat-button').hide();
+  $('#close-chat-container').hide();
   // get the messages for a particular chat (in order to show chat)
   $('.active-conversation-list').on('click', '.conversation-preview-contents', function(event) {
     $('.chat-content').empty();
@@ -70,7 +70,7 @@ $(document).ready(function() {
     $('.chat-text-box').hide();
     $('#conversation-window-container').animate({width: '25%'}, 500);
     $('#chat-window').animate({width: '12%'}, 500);
-    $(this).hide();
+    $('#close-chat-container').hide();
     $('.active-conversation-list').animate({'margin-left': '150px'}, 500);
   });
 
@@ -97,7 +97,7 @@ var getMsgs = function(event) {
     $('#conversation-window-container').animate({width: '80%'}, 500);
     $('#chat-window').animate({width: '100%'}, 500);
     $('.conversation-page-header').text();
-    $('#close-chat-button').show();
+    $('#close-chat-container').show();
 
     // bring out the chat body
     // append handlebar template for chat msgs
