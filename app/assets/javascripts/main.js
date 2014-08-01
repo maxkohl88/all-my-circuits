@@ -33,6 +33,7 @@ $(document).ready(function() {
   $('#close-chat-button').hide();
   // get the messages for a particular chat (in order to show chat)
   $('.active-conversation-list').on('click', '.conversation-preview-contents', function(event) {
+    $('.chat-content').empty();
     getMsgs(event);
   });
 
