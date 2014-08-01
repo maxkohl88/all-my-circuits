@@ -1,13 +1,30 @@
+.ultimate-wizard-container {
+  width: 100%;
+  height: 1000px;
+  background-color: rgba(160, 228, 255, 0.56);
+}
+
 .basic-wizard-container {
   width: 50%;
   margin: 0 auto;
+  margin-top: 25px;
   margin-bottom: 40px;
   font-family: 'Josefin Sans', sans-serif;
+  background-color: white;
+  border: 3px solid black;
+  padding: 15px;
 }
 
 .wizard-header {
+  font-size: 26px;
+  font-weight: bold;
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
+  width: 23%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: white;
+  border: 3px solid black;
 }
 
 .wizard-notifications {
@@ -19,7 +36,7 @@
 .wizard-form-field {
   height: 35px;
   background-color: white;
-  border: 2px solid rgba(38, 173, 228, 0.5);
+  border: 2px solid black;
   -webkit-border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;

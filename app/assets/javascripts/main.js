@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   //hover effect on main page login button
   $('.sign-up-button').on('mouseenter', function(){
-    $(this).css('background-color', 'rgba(38, 173, 228, 1)');
+    $(this).css('background-color', 'rgba(160, 228, 255, 0.91)');
   });
 
   $('.sign-up-button').on('mouseleave', function(){

@@ -1,29 +1,31 @@
-%h1.wizard-header Your Developer Vitals.
+.ultimate-wizard-container
 
-.basic-wizard-container.grid
-  = form_for(@user, url: wizard_path, method: :put) do |f|
+  %h1.wizard-header Your Developer Vitals.
 
-    .wizard-form-top.grid
-      .wizard-top-left.col-1-2
-        = f.label :primary_language, 'Favorite coding language*'
-        = f.select :primary_language, %w(Ruby C Javascript Java Perl Python), class: 'wizard-form-field'
-      .wizard-top-right.col-1-2
-        = f.label :human_language, 'Your spoken language:*'
-        = f.text_field :human_language, placeholder: 'Elvish?', class: 'wizard-form-field'
+  .basic-wizard-container.grid
+    = form_for(@user, url: wizard_path, method: :put) do |f|
 
-    .wizard-form-mid.grid   
-      .wizard-mid-left.col-1-2     
-        = f.label :years_programming, 'Programming experience:'
-        = f.text_field :years_programming, placeholder: 'in years', class: 'wizard-form-field'
-      .wziard-mid-right.col-1-2  
-        = f.label :industry, 'Industry:*'
-        = f.text_field :industry, placeholder: 'e.x. Healthcare', class: 'wizard-form-field'
+      .wizard-form-top.grid
+        .wizard-top-left.col-1-2
+          = f.label :primary_language, 'Favorite coding language*'
+          = f.select :primary_language, %w(Ruby C Javascript Java Perl Python), class: 'wizard-form-field'
+        .wizard-top-right.col-1-2
+          = f.label :human_language, 'Your spoken language:*'
+          = f.text_field :human_language, placeholder: 'Elvish?', class: 'wizard-form-field'
 
-    = f.submit 'Next', class: 'wizard-button'
+      .wizard-form-mid.grid   
+        .wizard-mid-left.col-1-2     
+          = f.label :years_programming, 'Programming experience:'
+          = f.text_field :years_programming, placeholder: 'in years', class: 'wizard-form-field'
+        .wziard-mid-right.col-1-2  
+          = f.label :industry, 'Industry:*'
+          = f.text_field :industry, placeholder: 'e.x. Healthcare', class: 'wizard-form-field'
+
+      = f.submit 'Next', class: 'wizard-button'
 
 
-.wizard-notifications
-  = render 'shared/error'
+  .wizard-notifications
+    = render 'shared/error'
 
-  = render 'wizard_notes'
+    = render 'wizard_notes'
 
