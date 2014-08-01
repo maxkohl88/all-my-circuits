@@ -1,2 +1,6 @@
-.grid#top-half
-= link_to 'sign up with github', user_omniauth_authorize_path(:github), class: 'button'
+#landing-page-container
+  #circuits-header All my Circuits
+  #circuits-description-left A dating site
+  #circuits-description-right for developers.
+  #sign-up-button-container
+    = link_to 'Sign in with Github', user_omniauth_authorize_path(:github), class: 'sign-up-button'

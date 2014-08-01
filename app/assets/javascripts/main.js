@@ -1,5 +1,26 @@
 $(document).ready(function() {
 
+  //hover effect on main page login button
+  $('.sign-up-button').on('mouseenter', function(){
+    $(this).css('background-color', 'rgba(38, 173, 228, 1)');
+  });
+
+  $('.sign-up-button').on('mouseleave', function(){
+    $(this).css('background-color', 'black');
+  });
+
+  function introAnim() {
+    $('#circuits-header').slideToggle(1800);
+    $('#circuits-description-left').show();
+    $('#circuits-description-left').animate({left: '36%'}, 1500);
+    $('#circuits-description-right').show();
+    $('#circuits-description-right').animate({right: '32.6%'}, 1500);
+    $('#sign-up-button-container').show();
+    $('#sign-up-button-container').animate({top: '45%'}, 1500);
+  }
+
+  introAnim();
+
   // search for users by attributes
   $('#search-form').submit(function(event) {
     runSearch(event);
