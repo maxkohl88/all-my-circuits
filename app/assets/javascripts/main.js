@@ -111,6 +111,7 @@ var sendMsg = function(event) {
   event.preventDefault();
   var chatId = $(event.target).parent().parent().attr('chat_id');
   var content = $(event.target).children('.new-message-field').val();
+  $(event.target).children('.new-message-field').val('');
   $.ajax({
     type: 'post',
     datatype: 'json',
