@@ -1,0 +1,94 @@
+.basic-wizard-container {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.wizard-header {
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.wizard-notifications {
+  width: 50%;
+  margin: 0 auto;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.wizard-form-field {
+  height: 35px;
+  background-color: white;
+  border: 2px solid rgba(38, 173, 228, 0.5);
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+select[id^='user_bday_'] {
+  height: 35px;
+  background-color: white;
+  border: 2px solid rgba(38, 173, 228, 0.5);
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+div[class^='wizard-form-'] {
+  margin-top: 15px;
+  text-align: center;
+}
+
+input[type="radio"] {
+    display:none;
+}
+
+input[type="radio"] + label {
+    display:inline-block;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    width:60px;
+    height:30px;
+    padding: 10px;
+    border: 2px solid rgba(38, 173, 228, 0.5);
+    padding: 4px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 5px;
+}
+
+input[type="radio"]:checked + label {
+    display:inline-block;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    width:60px;
+    height:30px;
+    padding: 10px;
+    border: 2px solid black;
+    color: white;
+    padding: 4px;
+    background-color: rgba(38, 173, 228, 0.5);
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.wizard-text-area {
+  width: 300px;
+  height: 150px;
+  background-color: white;
+  border: 2px solid rgba(38, 173, 228, 0.5);
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.wizard-button {
+  background-color: white;
+  border: 2px solid rgba(38, 173, 228, 0.5);
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  float: right;
+}
