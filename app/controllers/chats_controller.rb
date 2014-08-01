@@ -31,7 +31,15 @@ class ChatsController < ApplicationController
       theChat = @chat2
       puts 'Chat exists already, user cant like twice'
     else
-      theChat = Chat.create(u1_id: current_user.id, u2_id: chats_params[:u2], u1_like: true)
+      if current_user.id == chats_params[:u2]
+        theChat = Chat.create(u1_id: current_user.id,
+                              u2_id: chats_params[:u2],
+                              blocked: true)
+      else
+        theChat = Chat.create(u1_id: current_user.id,
+                              u2_id: chats_params[:u2],
+                              u1_like: true)
+      end
     end
     # responding with something serialized so it doesn't look for a template
     respond_with theChat
