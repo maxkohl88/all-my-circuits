@@ -1,0 +1,49 @@
+%h1.wizard-header Let's get to know you.
+
+.basic-wizard-container.grid
+  = form_for(@user, url: wizard_path, method: :put) do |f|
+
+    .wizard-form-top.grid
+      .wizard-top-left.col-1-2
+        = f.label 'username*'
+        = f.text_field :name, class: 'wizard-form-field'
+      .wizard-top-right.col-1-2
+        = f.label :gender, 'Gender*'
+        = f.radio_button :gender, 'male'
+        = f.label :gender_male, 'Male'
+        = f.radio_button :gender, 'female'
+        = f.label :gender_female, 'Female'
+
+    .wizard-form-mid.grid
+      .wizard-mid-left.col-1-2
+        = f.label :interested_in, "I'm interested in:*"
+        = f.radio_button :interested_in, 'male'
+        = f.label :interested_in_men, 'Men'
+        = f.radio_button :interested_in, 'female'
+        = f.label :interested_in_women, 'Women'
+        = f.radio_button :interested_in, 'both'
+        = f.label :interested_in_both, 'Both'
+
+      .wizard-mid-right.col-1-2
+        = f.label 'Zipcode*'
+        = f.text_field :zip, placeholder: 'Enter your zipcode', class: 'wizard-form-field'
+
+    .wizard-form-lower.grid
+      .wizard-lower-left.col-1-2
+        = f.label 'Date of Birth*'
+        = f.date_select :bday, start_year: 1980
+      .wizard-lower-right.col-1-2
+        = f.label 'Height:*'
+        = f.text_field :height, placeholder: 'in inches', class: 'wizard-form-field'
+
+
+    .wizard-form-basement.grid
+      = f.label 'Tell everyone a bit about yourself:*'
+      = f.text_area :summary, placeholder: 'You, in words.', class: 'wizard-text-area'
+      
+    = f.submit 'Next', class: 'wizard-button'
+
+.wizard-notifications
+  = render 'shared/error' 
+
+  = render 'wizard_notes'
