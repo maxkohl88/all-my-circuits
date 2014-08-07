@@ -105,7 +105,7 @@ var getMsgs = function(event) {
 
     // bring out the chat body
     // append handlebar template for chat msgs
-    $('.chat-text-box').attr('chat_id', data[0].chat_id);
+    $('.chat-text-box').attr('chat_id', parseInt(chatId));
     $('.chat-content').append(HandlebarsTemplates.buildChat(data));
   });
 };
