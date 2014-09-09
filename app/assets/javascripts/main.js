@@ -30,7 +30,8 @@ $(document).ready(function() {
   $('.extended-profile').hide();
 
   // buttons for sliding drawers
-  $('.search-results').on('click', '.drawer-cta', function() {
+  $('.search-results').on('click', '.drawer-cta', function(event) {
+    event.preventDefault();
     $(this).parent().parent().children('.result-preview').children('.extended-profile').slideToggle(700);
   });
 
@@ -62,7 +63,14 @@ $(document).ready(function() {
     sendMsg(event);
   });
 
-  $('#close-chat-button').click(function(){
+  $('#close-chat-button').click(function(event){
+    closeChatWindow(event);
+  });
+
+});
+
+var closeChatWindow = function(event) {
+    event.preventDefault();
     $('.conversation-preview-container').animate({width: '75%'}, 500);
     $('.conversation-preview').children('.conversation-preview-contents').children('li').show();
     $('.active-conversation-list').children('.conversation-preview').animate({width: '100%', 'margin-bottom': '30px'}, 500);
@@ -72,10 +80,7 @@ $(document).ready(function() {
     $('#chat-window').animate({width: '12%'}, 500);
     $('#close-chat-container').hide();
     $('.active-conversation-list').animate({'margin-left': '150px'}, 500);
-  });
-
-});
-
+};
 // get all messages to display in a chat
 var getMsgs = function(event) {
   event.preventDefault();
@@ -86,7 +91,6 @@ var getMsgs = function(event) {
     url: 'http://localhost:3000/chats/' + chatId + '/messages'
   })
   .done(function(data) {
-    console.log('yooooyo');
     // chat window animations
     $('.active-conversation-list').animate({'margin-left': '0px'}, 500);
     $('.conversation-preview-container').animate({width: '10%'}, 500);
@@ -101,7 +105,7 @@ var getMsgs = function(event) {
 
     // bring out the chat body
     // append handlebar template for chat msgs
-    $('.chat-text-box').attr('chat_id', data[0].chat_id);
+    $('.chat-text-box').attr('chat_id', parseInt(chatId));
     $('.chat-content').append(HandlebarsTemplates.buildChat(data));
   });
 };
